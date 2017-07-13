@@ -1,4 +1,17 @@
-set nocompatible              " be iMproved, required
+" A VIM config file.
+"
+" Maintainer:	Willian Goncalves <w.goncalves91@gmail.com>
+" Thanks to:    Guilherme Gonçalves <inacio.guilherme@gmail.com>
+" Last change:	2017 Jun 26
+"
+" To use it, copy it to
+"     for Unix and OS/2:  ~/.vimrc
+"	      for Amiga:  s:.vimrc
+"  for MS-DOS and Win32:  $VIM\_vimrc
+"	    for OpenVMS:  sys$login:.vimrc
+
+
+set nocompatible               " be iMproved, required
 set encoding=utf-8             " Use utf-8
 
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -8,20 +21,20 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-
-" let Vundle manage Vundle, required
 Plug 'xolox/vim-misc'
+Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'valloric/youcompleteme', { 'do': './install.py --tern-completer' }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'sheerun/vim-polyglot'
+Plug 'jiangmiao/auto-pairs'
+Plug 'alvan/vim-closetag'
 Plug 'xolox/vim-session'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/nerdcommenter'
-Plug 'Raimondi/delimitMate'
 Plug 'maksimr/vim-jsbeautify', {'do': 'git submodule update --init --recursive'}
-Plug 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic', { 'do': 'npm install -g eslint jshint' }
 Plug 'SirVer/ultisnips'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
@@ -40,21 +53,13 @@ Plug 'moll/vim-node'
 Plug 'tomasr/molokai'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-"Plugin 'ryanoasis/vim-devicons'
-
-" Initialize plugin system
+Plug 'suan/vim-instant-markdown', { 'do': 'sudo npm install -g instant-markdown-d' }
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-repeat'
+Plug 'MattesGroeger/vim-bookmarks'
+Plug 'xolox/vim-easytags', { 'do': 'sudo apt-get install exuberant-ctags' }
 call plug#end()
 
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2016 Mar 25
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -79,6 +84,7 @@ set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 set number		" display line numbers
+set numberwidth=1
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
@@ -162,6 +168,13 @@ set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scrollbar
 set guioptions-=L  "remove left-hand scrollbar
 
+" font
+set guifont=UbuntuMonoDerivativePowerline\ Nerd\ Font\ 11
+
+" split style for monokay
+set fillchars+=vert:\ 
+hi! VertSplit guibg=#293031 ctermbg=238
+
 " jsbeautify
 autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
@@ -192,7 +205,6 @@ let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint', 'jshint']
-"let g:syntastic_javascript_checkers = ['eslint']
 
 
 " Add optional packages.
@@ -268,10 +280,14 @@ set expandtab
 
 " CTRLP settings
 let g:ctrlp_working_path_mode = 0
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard'] " ignores files .gitignore
 
-" devicons
-"set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 11
-"let g:airline_powerline_fonts = 1
+" airline
+set laststatus=2
+let g:airline_theme='molokai'
+let g:airline_powerline_fonts=1
+
+" nerdtree-syntax-highlight
 let g:NERDTreeFileExtensionHighlightFullName = 1
 let g:NERDTreeExactMatchHighlightFullName = 1
 let g:NERDTreePatternMatchHighlightFullName = 1
@@ -289,3 +305,34 @@ endif
 " use with ':set list' and disable with ':set nolist'
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 set nolist
+
+" easymotion
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+" s{char}{char} to move to {char}{char}
+nmap s <Plug>(easymotion-overwin-f2)
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+
+
+" bookmarks
+nmap <Leader>m <Plug>BookmarkToggle
+nmap <Leader>mi <Plug>BookmarkAnnotate
+nmap <Leader>ma <Plug>BookmarkShowAll
+nmap <Leader>mj <Plug>BookmarkNext
+nmap <Leader>mk <Plug>BookmarkPrev
+nmap <Leader>mc <Plug>BookmarkClear
+nmap <Leader>mx <Plug>BookmarkClearAll
+nmap <Leader>mkk <Plug>BookmarkMoveUp
+nmap <Leader>mjj <Plug>BookmarkMoveDown
+nmap <Leader>mg <Plug>BookmarkMoveToLine
+let g:bookmark_no_default_key_mappings = 1
+
+" easytags
+let g:easytags_async = 1
+let g:easytags_resolve_links = 1
