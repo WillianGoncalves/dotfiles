@@ -50,7 +50,8 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'curist/vim-angular-template'
 Plug 'tpope/vim-surround'
 Plug 'moll/vim-node'
-Plug 'tomasr/molokai'
+"Plug 'tomasr/molokai'
+Plug 'colepeters/spacemacs-theme.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'suan/vim-instant-markdown', { 'do': 'sudo npm install -g instant-markdown-d' }
@@ -161,15 +162,14 @@ set tags=tags;/
 " window settings
 syntax enable
 set background=dark    " Setting dark mode
-colorscheme molokai
-let g:molokai_original = 1
+colorscheme spacemacs-theme
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scrollbar
 set guioptions-=L  "remove left-hand scrollbar
 
 " font
-set guifont=UbuntuMonoDerivativePowerline\ Nerd\ Font\ 11
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ Mono\ 12
 
 " split style for monokay
 set fillchars+=vert:\ 
