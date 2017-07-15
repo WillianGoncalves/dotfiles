@@ -50,7 +50,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'curist/vim-angular-template'
 Plug 'tpope/vim-surround'
 Plug 'moll/vim-node'
-"Plug 'tomasr/molokai'
 Plug 'colepeters/spacemacs-theme.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -169,7 +168,7 @@ set guioptions-=r  "remove right-hand scrollbar
 set guioptions-=L  "remove left-hand scrollbar
 
 " font
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ Mono\ 12
+set guifont=DroidSansMonoforPowerline\ Nerd\ Font
 
 " split style for monokay
 set fillchars+=vert:\ 
@@ -284,7 +283,7 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 
 " airline
 set laststatus=2
-let g:airline_theme='molokai'
+let g:airline_theme='lucius'
 let g:airline_powerline_fonts=1
 
 " nerdtree-syntax-highlight
