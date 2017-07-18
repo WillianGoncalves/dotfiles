@@ -22,8 +22,6 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'xolox/vim-misc'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
 Plug 'valloric/youcompleteme', { 'do': './install.py --tern-completer' }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'editorconfig/editorconfig-vim'
@@ -40,24 +38,20 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
-Plug 'jamescarr/snipmate-nodejs'
-Plug 'heavenshell/vim-jsdoc'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'geoffharcourt/vim-matchit'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'curist/vim-angular-template'
 Plug 'tpope/vim-surround'
 Plug 'moll/vim-node'
+Plug 'tpope/vim-rails'
 Plug 'colepeters/spacemacs-theme.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'suan/vim-instant-markdown', { 'do': 'sudo npm install -g instant-markdown-d' }
-Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-repeat'
-Plug 'MattesGroeger/vim-bookmarks'
 Plug 'xolox/vim-easytags', { 'do': 'sudo apt-get install exuberant-ctags' }
+Plug 'posva/vim-vue'
 call plug#end()
 
 
@@ -273,8 +267,8 @@ au FileType * setl cole=0
 set spell spelllang=en_us,pt_br
 
 " default tabsize
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 
 " CTRLP settings
