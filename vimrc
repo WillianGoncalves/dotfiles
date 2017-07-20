@@ -52,6 +52,7 @@ Plug 'suan/vim-instant-markdown', { 'do': 'sudo npm install -g instant-markdown-
 Plug 'tpope/vim-repeat'
 Plug 'xolox/vim-easytags', { 'do': 'sudo apt-get install exuberant-ctags' }
 Plug 'posva/vim-vue'
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 
@@ -241,6 +242,7 @@ set autoread
 
 " indentLine
 let g:indentLine_enabled=1
+let g:indentLine_char='|'
 set listchars=tab:\┆\ 
 set list
 
@@ -264,7 +266,8 @@ set cole=0
 au FileType * setl cole=0 
 
 " spell
-set spell spelllang=en_us,pt_br
+"set spell spelllang=en_us,pt_br
+set nospell
 
 " default tabsize
 set tabstop=2
@@ -299,33 +302,14 @@ endif
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 set nolist
 
-" easymotion
-" <Leader>f{char} to move to {char}
-map  <Leader>f <Plug>(easymotion-bd-f)
-nmap <Leader>f <Plug>(easymotion-overwin-f)
-" s{char}{char} to move to {char}{char}
-nmap s <Plug>(easymotion-overwin-f2)
-" Move to line
-map <Leader>L <Plug>(easymotion-bd-jk)
-nmap <Leader>L <Plug>(easymotion-overwin-line)
-" Move to word
-map  <Leader>w <Plug>(easymotion-bd-w)
-nmap <Leader>w <Plug>(easymotion-overwin-w)
-
-
-" bookmarks
-nmap <Leader>m <Plug>BookmarkToggle
-nmap <Leader>mi <Plug>BookmarkAnnotate
-nmap <Leader>ma <Plug>BookmarkShowAll
-nmap <Leader>mj <Plug>BookmarkNext
-nmap <Leader>mk <Plug>BookmarkPrev
-nmap <Leader>mc <Plug>BookmarkClear
-nmap <Leader>mx <Plug>BookmarkClearAll
-nmap <Leader>mkk <Plug>BookmarkMoveUp
-nmap <Leader>mjj <Plug>BookmarkMoveDown
-nmap <Leader>mg <Plug>BookmarkMoveToLine
-let g:bookmark_no_default_key_mappings = 1
+" map :nohl to ESC
+map <silent> <ESC> :nohl<CR>
 
 " easytags
 let g:easytags_async = 1
 let g:easytags_resolve_links = 1
+
+" set selection to exclusive
+set selection=exclusive
+
+
