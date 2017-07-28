@@ -45,14 +45,15 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-surround'
 Plug 'moll/vim-node'
 Plug 'tpope/vim-rails'
-Plug 'colepeters/spacemacs-theme.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'suan/vim-instant-markdown', { 'do': 'sudo npm install -g instant-markdown-d' }
 Plug 'tpope/vim-repeat'
 Plug 'xolox/vim-easytags', { 'do': 'sudo apt-get install exuberant-ctags' }
 Plug 'posva/vim-vue'
 Plug 'Yggdroot/indentLine'
+"Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 
@@ -155,15 +156,14 @@ set tags=tags;/
 
 " window settings
 syntax enable
-set background=dark    " Setting dark mode
-colorscheme spacemacs-theme
+colorscheme deep-space 
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scrollbar
 set guioptions-=L  "remove left-hand scrollbar
 
 " font
-set guifont=DroidSansMonoforPowerline\ Nerd\ Font
+set guifont=FuraCode\ Nerd\ Font
 
 " split style for monokay
 set fillchars+=vert:\ 
@@ -282,6 +282,7 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 set laststatus=2
 let g:airline_theme='lucius'
 let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled=1
 
 " nerdtree-syntax-highlight
 let g:NERDTreeFileExtensionHighlightFullName = 1
@@ -291,25 +292,20 @@ let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exac
 let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 
 " hide end of buffer '~'
-if has('gui_running')
-    hi! EndOfBuffer guibg=bg guifg=bg
-else 
-    hi! EndOfBuffer ctermbg=bg ctermfg=bg
-endif
+"if has('gui_running')
+    "hi! EndOfBuffer guibg=bg guifg=bg
+"else 
+    "hi! EndOfBuffer ctermbg=bg ctermfg=bg
+"endif
 
 " config hidden characters exibition.
 " use with ':set list' and disable with ':set nolist'
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 set nolist
 
-" map :nohl to ESC
-map <silent> <ESC> :nohl<CR>
+" map :nohl to back slask (Leader)
+nnoremap <silent> <Leader>/ :nohlsearch<CR>
 
 " easytags
 let g:easytags_async = 1
 let g:easytags_resolve_links = 1
-
-" set selection to exclusive
-set selection=exclusive
-
-
