@@ -56,6 +56,7 @@ Plug 'Yggdroot/indentLine'
 "Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
+:set linespace=7
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -281,7 +282,7 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 " airline
 set laststatus=2
 let g:airline_theme='lucius'
-let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts=0
 let g:airline#extensions#tabline#enabled=1
 
 " nerdtree-syntax-highlight
