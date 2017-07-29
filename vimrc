@@ -164,7 +164,7 @@ set guioptions-=r  "remove right-hand scrollbar
 set guioptions-=L  "remove left-hand scrollbar
 
 " font
-set guifont=FuraCode\ Nerd\ Font
+set guifont=FuraMonoForPowerline\ Nerd\ Font
 
 " split style for monokay
 set fillchars+=vert:\ 
