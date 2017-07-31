@@ -53,6 +53,7 @@ Plug 'tpope/vim-repeat'
 Plug 'xolox/vim-easytags', { 'do': 'sudo apt-get install exuberant-ctags' }
 Plug 'posva/vim-vue'
 Plug 'Yggdroot/indentLine'
+Plug 'tpope/vim-fugitive'
 "Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
@@ -284,6 +285,8 @@ set laststatus=2
 let g:airline_theme='lucius'
 let g:airline_powerline_fonts=0
 let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#show_buffers=0
+let g:airline#extensions#hunks#enabled=0
 
 " nerdtree-syntax-highlight
 let g:NERDTreeFileExtensionHighlightFullName = 1
