@@ -9,3 +9,13 @@ youcompleteme
 - `sudo apt-get install python-dev python3-dev`
 - `cd ~/.vim/plugged/youcompleteme && sudo ./install.sh`
 
+To check which plugins are making vim slow:
+
+```
+:profile start profile.log
+:profile func *
+:profile file *
+" At this point do slow actions
+:profile pause
+:noautocmd qall!
+```
