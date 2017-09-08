@@ -21,6 +21,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+Plug 'posva/vim-vue'
 Plug 'xolox/vim-misc'
 Plug 'valloric/youcompleteme', { 'do': './install.py --tern-completer' }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
@@ -36,7 +37,7 @@ Plug 'scrooloose/syntastic', { 'do': 'npm install -g eslint jshint' }
 Plug 'SirVer/ultisnips'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
+"Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -50,10 +51,9 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'suan/vim-instant-markdown', { 'do': 'sudo npm install -g instant-markdown-d' }
 Plug 'tpope/vim-repeat'
-Plug 'xolox/vim-easytags', { 'do': 'sudo apt-get install exuberant-ctags' }
-Plug 'posva/vim-vue'
+"Plug 'xolox/vim-easytags', { 'do': 'sudo apt-get install exuberant-ctags' }
 Plug 'Yggdroot/indentLine'
-Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-fugitive'
 "Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
@@ -313,3 +313,6 @@ nnoremap <silent> <Leader>/ :nohlsearch<CR>
 " easytags
 let g:easytags_async = 1
 let g:easytags_resolve_links = 1
+
+let g:vue_disable_pre_processors=1
+set scrolloff=5
