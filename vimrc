@@ -2,13 +2,12 @@
 "
 " Maintainer:	Willian Goncalves <w.goncalves91@gmail.com>
 " Thanks to:    Guilherme Gonçalves <inacio.guilherme@gmail.com>
-" Last change:	2017 Jun 26
+" Last change:	2017 Out 02
 "
 " To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
+"  for Unix and OS/2:  ~/.vimrc
 "  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
+"	 for OpenVMS:  sys$login:.vimrc
 
 
 set nocompatible               " be iMproved, required
@@ -37,7 +36,6 @@ Plug 'scrooloose/syntastic', { 'do': 'npm install -g eslint jshint' }
 Plug 'SirVer/ultisnips'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
-"Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -51,10 +49,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'suan/vim-instant-markdown', { 'do': 'sudo npm install -g instant-markdown-d' }
 Plug 'tpope/vim-repeat'
-"Plug 'xolox/vim-easytags', { 'do': 'sudo apt-get install exuberant-ctags' }
 Plug 'Yggdroot/indentLine'
-"Plug 'tpope/vim-fugitive'
-"Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 :set linespace=7
@@ -268,7 +263,6 @@ set cole=0
 au FileType * setl cole=0 
 
 " spell
-"set spell spelllang=en_us,pt_br
 set nospell
 
 " default tabsize
@@ -310,9 +304,15 @@ set nolist
 " map :nohl to back slask (Leader)
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
 
-" easytags
-let g:easytags_async = 1
-let g:easytags_resolve_links = 1
-
 let g:vue_disable_pre_processors=1
 set scrolloff=5
+
+"syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
