@@ -20,7 +20,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'posva/vim-vue'
 Plug 'xolox/vim-misc'
 Plug 'valloric/youcompleteme', { 'do': './install.py --tern-completer' }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
