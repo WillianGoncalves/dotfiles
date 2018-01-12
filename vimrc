@@ -49,6 +49,8 @@ Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'suan/vim-instant-markdown', { 'do': 'sudo npm install -g instant-markdown-d' }
 Plug 'tpope/vim-repeat'
 Plug 'Yggdroot/indentLine'
+Plug 'junegunn/vim-easy-align'
+
 call plug#end()
 
 :set linespace=7
@@ -303,3 +305,9 @@ nnoremap <silent> <Leader>/ :nohlsearch<CR>
 
 let g:vue_disable_pre_processors=1
 set scrolloff=5
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
