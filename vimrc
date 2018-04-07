@@ -41,8 +41,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-surround'
-Plug 'moll/vim-node'
-Plug 'tpope/vim-rails'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'tyrannicaltoucan/vim-deep-space'
@@ -314,3 +312,8 @@ xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+" improve ruby performance
+let loaded_matchparen=1
+set regexpengine=1
+set lazyredraw
