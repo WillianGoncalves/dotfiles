@@ -1,14 +1,14 @@
 Plugin manager: [vim-plug](https://github.com/junegunn/vim-plug)
-
+## Install
 Install vim-gtk: `sudo apt install vim-gtk`
 
-Clone repository and run `./install.sh`
+Clone this repository and run `./install.sh`
 
-youcompleteme
+Install **youcompleteme** plugin:
 - `sudo apt-get install build-essential cmake`
 - `sudo apt-get install python-dev python3-dev`
 - `cd ~/.vim/plugged/youcompleteme && sudo ./install.sh`
-
+## Diagnostics
 To check which plugins are making vim slow:
 
 ```

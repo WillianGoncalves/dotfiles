@@ -14,3 +14,4 @@ echo Creating symlink for $BASEDIR/vimrc
 ln -sf $BASEDIR/vimrc ~/.vimrc
 sudo vim +PlugInstall +qall
 
+ln -sf $BASEDIR/.tmux.conf ~/.tmux.conf
