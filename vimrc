@@ -42,7 +42,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-surround'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'suan/vim-instant-markdown', { 'do': 'sudo npm install -g instant-markdown-d' }
 Plug 'tpope/vim-repeat'
