@@ -31,7 +31,7 @@ Plug 'xolox/vim-session'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/nerdcommenter'
 Plug 'maksimr/vim-jsbeautify', {'do': 'git submodule update --init --recursive'}
-Plug 'scrooloose/syntastic', { 'do': 'npm install -g eslint jshint' }
+Plug 'w0rp/ale'
 Plug 'SirVer/ultisnips'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
@@ -185,16 +185,10 @@ let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
 set completeopt-=preview
 
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_loc_list_height = 4
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 2
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint', 'jshint']
+" ale
+" Fix files with prettier, and then ESLint.
+let g:ale_linters = {'javascript': ['eslint']}
+let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
 
 " closetag
 let g:closetag_filenames = "*.html.erb,*.html,*.xhtml,*.phtml"
