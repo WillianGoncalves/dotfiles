@@ -189,6 +189,8 @@ set completeopt-=preview
 " Fix files with prettier, and then ESLint.
 let g:ale_linters = {'javascript': ['eslint']}
 let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
+nmap <silent> <leader>ne :ALENext<cr>
+nmap <silent> <leader>pe :ALEPrevious<cr>
 
 " closetag
 let g:closetag_filenames = "*.html.erb,*.html,*.xhtml,*.phtml"
