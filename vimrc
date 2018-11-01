@@ -32,7 +32,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/nerdcommenter'
 Plug 'maksimr/vim-jsbeautify', {'do': 'git submodule update --init --recursive'}
 Plug 'w0rp/ale'
-Plug 'SirVer/ultisnips'
+Plug 'https://github.com/sirver/ultisnips.git'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'honza/vim-snippets'
@@ -183,6 +183,7 @@ let g:session_autoload = 'no'
 " youcompleteme
 let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
+let g:ycm_filepath_blacklist = {}
 set completeopt-=preview
 
 " ale
