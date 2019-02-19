@@ -47,6 +47,7 @@ Plug 'suan/vim-instant-markdown', { 'do': 'sudo npm install -g instant-markdown-
 Plug 'tpope/vim-repeat'
 Plug 'Yggdroot/indentLine'
 Plug 'junegunn/vim-easy-align'
+Plug 'lervag/vimtex'
 
 call plug#end()
 
@@ -313,3 +314,6 @@ nmap ga <Plug>(EasyAlign)
 let loaded_matchparen=1
 set regexpengine=1
 set lazyredraw
+
+" disable polyglot language packs to avoid conflict with other plugins
+let g:polyglot_disabled = ['latex']
