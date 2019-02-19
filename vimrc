@@ -48,6 +48,7 @@ Plug 'tpope/vim-repeat'
 Plug 'Yggdroot/indentLine'
 Plug 'junegunn/vim-easy-align'
 Plug 'lervag/vimtex'
+Plug 'ap/vim-css-color'
 
 call plug#end()
 
@@ -255,6 +256,7 @@ function! OpenNerdTree()
 endfunction
 nnoremap <silent> <C-\> :call OpenNerdTree()<CR>
 let NERDTreeShowHidden=1
+let NERDTreeNodeDelimiter="\u00a0"
 
 " disable auto-hide
 let g:vim_json_syntax_conceal = 0
