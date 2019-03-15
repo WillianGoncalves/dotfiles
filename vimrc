@@ -319,3 +319,5 @@ set lazyredraw
 
 " disable polyglot language packs to avoid conflict with other plugins
 let g:polyglot_disabled = ['latex']
+
+command FormatJson set syntax=json | %!python -m json.tool
