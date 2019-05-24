@@ -321,3 +321,6 @@ set lazyredraw
 let g:polyglot_disabled = ['latex']
 
 command FormatJson set syntax=json | %!python -m json.tool
+
+" close other tabs
+command Qo %bd|e#
