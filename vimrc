@@ -49,6 +49,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'junegunn/vim-easy-align'
 Plug 'lervag/vimtex'
 Plug 'ap/vim-css-color'
+Plug 'kshenoy/vim-signature'
 
 call plug#end()
 
@@ -313,7 +314,6 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " improve ruby performance
-let loaded_matchparen=1
 set regexpengine=1
 set lazyredraw
 
