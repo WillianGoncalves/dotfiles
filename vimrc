@@ -50,6 +50,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'lervag/vimtex'
 Plug 'ap/vim-css-color'
 Plug 'kshenoy/vim-signature'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
