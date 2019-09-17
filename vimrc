@@ -31,7 +31,7 @@ Plug 'xolox/vim-session'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/nerdcommenter'
 Plug 'maksimr/vim-jsbeautify', {'do': 'git submodule update --init --recursive'}
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale', { 'commit': 'd837169f1d10f0fee605cc17564c68563db94601' }
 Plug 'https://github.com/sirver/ultisnips.git'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
