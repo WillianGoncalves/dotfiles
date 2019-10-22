@@ -8,6 +8,7 @@ Install **youcompleteme** plugin:
 - `sudo apt-get install build-essential cmake`
 - `sudo apt-get install python-dev python3-dev`
 - `cd ~/.vim/plugged/youcompleteme && sudo ./install.sh`
+
 ## Diagnostics
 To check which plugins are making vim slow:
 
@@ -19,6 +20,11 @@ To check which plugins are making vim slow:
 :profile pause
 :noautocmd qall!
 ```
+
+## Rg (ripgrep)
+
+The `:Rg` command requires [ripgrep](https://github.com/BurntSushi/ripgrep#installation) installed.
+
 ## Vimtex
 
 | LHS              | RHS                                          | MODE  |

@@ -25,32 +25,32 @@ Plug 'valloric/youcompleteme', { 'do': './install.py --tern-completer' }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'sheerun/vim-polyglot'
-Plug 'jiangmiao/auto-pairs'
-Plug 'alvan/vim-closetag'
-Plug 'xolox/vim-session'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'scrooloose/nerdcommenter'
+Plug 'jiangmiao/auto-pairs' "Vim plugin, insert or delete brackets, parens, quotes in pair
+Plug 'alvan/vim-closetag' "Auto close (X)HTML tags
+Plug 'xolox/vim-session' "Extended session management for Vim
+Plug 'terryma/vim-multiple-cursors' "True Sublime Text style multiple selections for Vim
+Plug 'scrooloose/nerdcommenter' "Code comment plugin
 Plug 'maksimr/vim-jsbeautify', {'do': 'git submodule update --init --recursive'}
-Plug 'dense-analysis/ale', { 'commit': 'd837169f1d10f0fee605cc17564c68563db94601' }
+Plug 'dense-analysis/ale', { 'commit': 'd837169f1d10f0fee605cc17564c68563db94601' } "Check syntax in Vim asynchronously and fix files, with Language Server Protocol (LSP) support
+Plug 'honza/vim-snippets'
 Plug 'https://github.com/sirver/ultisnips.git'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
-Plug 'honza/vim-snippets'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tpope/vim-surround'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tyrannicaltoucan/vim-deep-space'
-Plug 'suan/vim-instant-markdown', { 'do': 'sudo npm install -g instant-markdown-d' }
-Plug 'tpope/vim-repeat'
-Plug 'Yggdroot/indentLine'
-Plug 'junegunn/vim-easy-align'
-Plug 'lervag/vimtex'
-Plug 'ap/vim-css-color'
-Plug 'kshenoy/vim-signature'
-Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdtree' "A tree explorer plugin for vim
+Plug 'Xuyuanp/nerdtree-git-plugin' "A plugin of NERDTree showing git status
+Plug 'tpope/vim-surround' "Quoting/parenthesizing made simple
+Plug 'ctrlpvim/ctrlp.vim' "CTRL P
+Plug 'tyrannicaltoucan/vim-deep-space' "Vim theme
+Plug 'suan/vim-instant-markdown', { 'do': 'sudo npm install -g instant-markdown-d' } "Instant Markdown previews from Vim!
+Plug 'tpope/vim-repeat' "Enable repeating supported plugin maps with '.'
+Plug 'Yggdroot/indentLine' "A vim plugin to display the indention levels with thin vertical lines
+Plug 'junegunn/vim-easy-align' "A Vim alignment plugin
+Plug 'lervag/vimtex' "A modern vim plugin for editing LaTeX files
+Plug 'kshenoy/vim-signature' "Plugin to toggle, display and navigate marks
+Plug 'airblade/vim-gitgutter' "A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks and partial hunks.
+Plug 'jremmen/vim-ripgrep' "Use RipGrep in Vim and display results in a quickfix list
 
 call plug#end()
 
