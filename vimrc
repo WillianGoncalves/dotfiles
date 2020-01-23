@@ -325,3 +325,8 @@ command FormatJson set syntax=json | %!python -m json.tool
 
 " close other tabs
 command Qo %bd|e#
+
+" GitGutter
+nmap <Leader>uh <Plug>(GitGutterUndoHunk)
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
