@@ -51,6 +51,7 @@ Plug 'lervag/vimtex' "A modern vim plugin for editing LaTeX files
 Plug 'kshenoy/vim-signature' "Plugin to toggle, display and navigate marks
 Plug 'airblade/vim-gitgutter' "A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks and partial hunks.
 Plug 'jremmen/vim-ripgrep' "Use RipGrep in Vim and display results in a quickfix list
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -194,11 +195,9 @@ set completeopt-=preview
 " Fix files with prettier, and then ESLint.
 let g:ale_linters = {'javascript': ['eslint']}
 let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
-nmap <silent> <leader>ne :ALENext<cr>
-nmap <silent> <leader>pe :ALEPrevious<cr>
 
 " closetag
-let g:closetag_filenames = "*.html.erb,*.html,*.xhtml,*.phtml"
+let g:closetag_filenames = "*.html.erb,*.html,*.xhtml,*.phtml,*.js"
 
 
 " Add optional packages.
@@ -286,6 +285,9 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#show_buffers=0
 let g:airline#extensions#hunks#enabled=0
 
+" statusline
+set statusline+=%{FugitiveStatusline()}
+
 " nerdtree-syntax-highlight
 let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
 let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
@@ -324,9 +326,16 @@ let g:polyglot_disabled = ['latex']
 command FormatJson set syntax=json | %!python -m json.tool
 
 " close other tabs
-command Qo %bd|e#
+command Q %bd|e#
 
 " GitGutter
 nmap <Leader>uh <Plug>(GitGutterUndoHunk)
 nmap ]h <Plug>(GitGutterNextHunk)
 nmap [h <Plug>(GitGutterPrevHunk)
+
+" ale
+nmap ]e :ALENext<cr>
+nmap [e :ALEPrevious<cr>
+
+" git commit with 72 columns
+autocmd Filetype gitcommit setlocal spell textwidth=72
