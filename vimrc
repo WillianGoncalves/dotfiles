@@ -285,9 +285,6 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#show_buffers=0
 let g:airline#extensions#hunks#enabled=0
 
-" statusline
-set statusline+=%{FugitiveStatusline()}
-
 " nerdtree-syntax-highlight
 let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
 let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
