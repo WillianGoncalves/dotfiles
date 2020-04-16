@@ -41,7 +41,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree' "A tree explorer plugin for vim
 Plug 'Xuyuanp/nerdtree-git-plugin' "A plugin of NERDTree showing git status
 Plug 'tpope/vim-surround' "Quoting/parenthesizing made simple
-Plug 'ctrlpvim/ctrlp.vim' "CTRL P
 Plug 'tyrannicaltoucan/vim-deep-space' "Vim theme
 Plug 'suan/vim-instant-markdown', { 'do': 'sudo npm install -g instant-markdown-d' } "Instant Markdown previews from Vim!
 Plug 'tpope/vim-repeat' "Enable repeating supported plugin maps with '.'
@@ -50,8 +49,9 @@ Plug 'junegunn/vim-easy-align' "A Vim alignment plugin
 Plug 'lervag/vimtex' "A modern vim plugin for editing LaTeX files
 Plug 'kshenoy/vim-signature' "Plugin to toggle, display and navigate marks
 Plug 'airblade/vim-gitgutter' "A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks and partial hunks.
-Plug 'jremmen/vim-ripgrep' "Use RipGrep in Vim and display results in a quickfix list
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -81,12 +81,8 @@ set showcmd        " display incomplete commands
 set incsearch      " do incremental searching
 set number relativenumber " display line numbers
 set numberwidth=1
-
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
-
-" Don't use Ex mode, use Q for formatting
-map Q gq
+set nowrap
+set hlsearch
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
@@ -199,7 +195,6 @@ let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
 " closetag
 let g:closetag_filenames = "*.html.erb,*.html,*.xhtml,*.phtml,*.js"
 
-
 " Add optional packages.
 "
 " The matchit plugin makes the % command work better, but it is not backwards
@@ -209,9 +204,6 @@ packadd matchit
 " current directory abreviation '%%'
 cabbr <expr> %% expand('%:p:h')
 nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
-
-set nowrap
-set hlsearch
 
 " Trigger configuration. Do not use <tab> if you use
 " https://github.com/Valloric/YouCompleteMe.
@@ -259,6 +251,10 @@ nnoremap <silent> <C-\> :call OpenNerdTree()<CR>
 let NERDTreeShowHidden=1
 let NERDTreeNodeDelimiter="\u00a0"
 
+" nerdtree-syntax-highlight
+let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
+let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
+
 " disable auto-hide
 let g:vim_json_syntax_conceal = 0
 set conceallevel=0
@@ -273,10 +269,6 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
-" CTRLP settings
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard'] " ignores files .gitignore
-
 " airline
 set laststatus=2
 let g:airline_theme='lucius'
@@ -284,10 +276,6 @@ let g:airline_powerline_fonts=0
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#show_buffers=0
 let g:airline#extensions#hunks#enabled=0
-
-" nerdtree-syntax-highlight
-let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
-let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 
 " hide end of buffer '~'
 "if has('gui_running')
@@ -305,6 +293,7 @@ set nolist
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
 
 let g:vue_disable_pre_processors=1
+
 set scrolloff=5
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -320,10 +309,10 @@ set lazyredraw
 " disable polyglot language packs to avoid conflict with other plugins
 let g:polyglot_disabled = ['latex']
 
-command FormatJson set syntax=json | %!python -m json.tool
+command! FormatJson set syntax=json | %!python -m json.tool
 
 " close other tabs
-command Q %bd|e#
+command! Q %bd|e#
 
 " GitGutter
 nmap <Leader>uh <Plug>(GitGutterUndoHunk)
@@ -336,3 +325,6 @@ nmap [e :ALEPrevious<cr>
 
 " git commit with 72 columns
 autocmd Filetype gitcommit setlocal spell textwidth=72
+
+" fzf
+nnoremap <C-p> :Files<Cr>

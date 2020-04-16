@@ -1,4 +1,5 @@
 Plugin manager: [vim-plug](https://github.com/junegunn/vim-plug)
+
 ## Install
 Install vim-gtk: `sudo apt install vim-gtk`
 
@@ -21,9 +22,26 @@ To check which plugins are making vim slow:
 :noautocmd qall!
 ```
 
-## Rg (ripgrep)
+## Utils
 
-The `:Rg` command requires [ripgrep](https://github.com/BurntSushi/ripgrep#installation) installed.
+- `CTRL+r`: find and replace selected text (visual mode)
+- `CTRL+j`: use snippet
+- `]e`: go to next error
+- `[e`: go to previous error
+- `]h`: go to next hunk of changes
+- `[h`: go to previous hunk of changes
+
+## FZF
+
+Install:
+
+```
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+```
+
+- The `:Rg` command requires [ripgrep](https://github.com/BurntSushi/ripgrep#installation) installed.
+- The `:Files` command is mapped to CTRL+P.
 
 ## Vimtex
 
