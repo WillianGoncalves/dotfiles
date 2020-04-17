@@ -52,6 +52,12 @@ Plug 'airblade/vim-gitgutter' "A Vim plugin which shows a git diff in the gutter
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+"Fzf already includes a Rg command, but the vim-ripgrep has some advantages
+"like send the search result to quickfix automatically and search for the word
+"under cursor. Vim-ripgrep must be included after fzf so that the RG command
+"is overrided with the vim-ripgrep's Rg command.
+Plug 'jremmen/vim-ripgrep'
+
 
 call plug#end()
 
@@ -166,11 +172,11 @@ set fillchars+=vert:\
 hi! VertSplit guibg=#293031 ctermbg=238
 
 " jsbeautify
-autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
-autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
-autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
-autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+"autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+"autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
+"autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
+"autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+"autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
 " Store swap files in fixed location, not current directory.
 set backupdir=/tmp
@@ -327,4 +333,29 @@ nmap [e :ALEPrevious<cr>
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
 " fzf
+let $FZF_DEFAULT_COMMAND = "fd --type f"
+
+command! -nargs=* -bang RG call fzf#vim#grep(
+      \ 'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>),
+      \ 1,
+      \ fzf#vim#with_preview(),
+      \ <bang>0)
+
+nnoremap <C-f> :RG<Cr>
 nnoremap <C-p> :Files<Cr>
+
+" to see more values to configure the colors, see: https://github.com/tyrannicaltoucan/vim-deep-space/blob/master/colors/deep-space.vim
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }

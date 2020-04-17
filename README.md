@@ -31,7 +31,7 @@ To check which plugins are making vim slow:
 - `]h`: go to next hunk of changes
 - `[h`: go to previous hunk of changes
 
-## FZF
+## FZF, ripgrep and fd
 
 Install:
 
@@ -40,8 +40,20 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 ```
 
-- The `:Rg` command requires [ripgrep](https://github.com/BurntSushi/ripgrep#installation) installed.
+**Fzf** already includes a `Rg` command, but the **vim-ripgrep** has some advantages
+like send the search result to quickfix automatically and search for
+the word under cursor. Vim-ripgrep must be included after fzf so that
+the fzf's `Rg` command is overrided with the vim-ripgrep's `Rg` command.
+
+- The `:Rg` command requires [ripgrep](https://github.com/BurntSushi/ripgrep#installation) installed on Ubuntu and is mapped to CTRL+F (find in files).
 - The `:Files` command is mapped to CTRL+P.
+
+| Command | Description                                   | Requires                                                        |
+| ------- | --------------------------------------------- | --------------------------------------------------------------- |
+| CTRL+p  | Find files                                    | [fd](https://github.com/sharkdp/fd)                             |
+| CTRL+f  | Find content, uses fzf's `Rg` command         | [ripgrep](https://github.com/BurntSushi/ripgrep#installation)   |
+| Rg      | Find content, uses vim-ripgrep's `Rg` command | [ripgrep](https://github.com/BurntSushi/ripgrep#installation)   |
+
 
 ## Vimtex
 
