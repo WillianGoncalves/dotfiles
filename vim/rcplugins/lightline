@@ -1,0 +1,42 @@
+Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
+Plug 'maximbaz/lightline-ale'
+
+function! GitStatus()
+  let [a,m,r] = GitGutterGetHunkSummary()
+  return printf('+%d ~%d -%d', a, m, r)
+endfunction
+
+let g:lightline = {
+      \ 'colorscheme': 'one',
+      \ 'active': {
+      \   'left': [
+      \     ['mode', 'paste'],
+      \     ['gitbranch', 'readonly', 'filename', 'modified'],
+      \   ],
+      \   'right': [
+      \     [ 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ],
+      \     [ 'lineinfo' ],
+      \     [ 'percent' ],
+      \     [ 'gitstatus', 'filetype' ],
+      \   ]
+      \ },
+      \ 'tabline': {'left': [['buffers']], 'right': [['close']]},
+      \ 'component_expand': {
+      \   'buffers': 'lightline#bufferline#buffers',
+      \   'linter_infos': 'lightline#ale#infos',
+      \   'linter_warnings': 'lightline#ale#warnings',
+      \   'linter_errors': 'lightline#ale#errors',
+      \   'linter_ok': 'lightline#ale#ok',
+      \ },
+      \ 'component_type': {
+      \   'buffers': 'tabsel',
+      \   'linter_infos': 'right',
+      \   'linter_warnings': 'warning',
+      \   'linter_errors': 'error',
+      \   'linter_ok': 'right',
+      \ },
+      \ 'component_function': {'gitbranch': 'FugitiveHead', 'gitstatus': 'GitStatus'}
+      \ }
+
+" vim:ft=vim

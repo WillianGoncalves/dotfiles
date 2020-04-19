@@ -42,6 +42,14 @@ To check which plugins are making vim slow:
 - `\ntt`: nerd tree toggle
 - `CTRL+j`: jump to next placeholder within a snippet
 - `CTRL+k`: jump to previous placeholder within a snippet
+- `:Gread`: checkout current file
+
+## Fugitive
+
+1. `:Git` to open the fugitive summary with all changes (`g?` to help)
+2. `s` state file under cursor
+3. `u` unstage file under cursor
+4. `cc` create commit
 
 ## FZF, ripgrep and fd
 

@@ -32,10 +32,6 @@ Plug 'terryma/vim-multiple-cursors' "True Sublime Text style multiple selections
 
 " replace
 Plug 'alvan/vim-closetag' " replace with tpope/vim-endwise?
-Plug 'vim-airline/vim-airline' " replace with lighline
-Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-fugitive' " replace with vim-gitbranch?
-Plug 'airblade/vim-gitgutter' " vim-signfy?
 
 " verificar relação com coc.vim para os seguintes plugins:
 Plug 'dense-analysis/ale', { 'commit': 'd837169f1d10f0fee605cc17564c68563db94601' } "Check syntax in Vim asynchronously and fix files, with Language Server Protocol (LSP) support
@@ -70,6 +66,9 @@ set number relativenumber " display line numbers
 set numberwidth=1
 set nowrap
 set hlsearch
+set updatetime=100
+set laststatus=2 " show lightline
+set showtabline=2 " show tabline
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
@@ -140,10 +139,14 @@ set tags=tags;/
 " window settings
 syntax enable
 colorscheme deep-space
-set guioptions-=m  "remove menu bar
-set guioptions-=T  "remove toolbar
-set guioptions-=r  "remove right-hand scrollbar
-set guioptions-=L  "remove left-hand scrollbar
+
+if has('gui_running')
+  set guioptions-=m  "remove menu bar
+  set guioptions-=T  "remove toolbar
+  set guioptions-=r  "remove right-hand scrollbar
+  set guioptions-=L  "remove left-hand scrollbar
+  set guioptions-=e  "remove default tabline
+endif
 
 " font
 set guifont=FuraMonoForPowerline\ Nerd\ Font
@@ -231,14 +234,6 @@ set nospell
 set tabstop=2
 set shiftwidth=2
 set expandtab
-
-" airline
-set laststatus=2
-let g:airline_theme='lucius'
-let g:airline_powerline_fonts=0
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#show_buffers=0
-let g:airline#extensions#hunks#enabled=0
 
 " hide end of buffer '~'
 "if has('gui_running')
