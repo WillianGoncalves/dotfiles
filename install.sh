@@ -12,6 +12,7 @@ cd ~/.local/share/fonts && curl -fLo "Fira Mono.otf" https://github.com/ryanoasi
 #ln -sf $BASEDIR/vim ~/.vim
 echo Creating symlink for $BASEDIR/vim/vimrc
 ln -sf $BASEDIR/vim/vimrc ~/.vimrc
+ln -sf $BASEDIR/vim/rcplugins ~/.vim/rcplugins
 sudo vim +PlugInstall +qall
 
 ln -sf $BASEDIR/tmux/.tmux.conf ~/.tmux.conf

@@ -1,0 +1,8 @@
+"Fzf already includes a Rg command, but the vim-ripgrep has some advantages
+"like send the search result to quickfix automatically and search for the word
+"under cursor. Vim-ripgrep must be included after fzf so that the RG command
+"is overrided with the vim-ripgrep's Rg command.
+
+Plug 'jremmen/vim-ripgrep'
+
+" vim:ft=vim

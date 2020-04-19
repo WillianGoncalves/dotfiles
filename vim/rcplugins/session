@@ -1,0 +1,5 @@
+" Extended session management for Vim
+
+Plug 'xolox/vim-session'
+
+" vim:ft=vim

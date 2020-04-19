@@ -1,0 +1,4 @@
+Plug 'scrooloose/nerdtree' " A tree explorer plugin for vim
+Plug 'Xuyuanp/nerdtree-git-plugin' " A plugin of NERDTree showing git status
+
+" vim:ft=vim

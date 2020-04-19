@@ -1,0 +1,5 @@
+" Instant Markdown previews from Vim!
+
+Plug 'suan/vim-instant-markdown', { 'do': 'sudo npm install -g instant-markdown-d' }
+
+" vim:ft=vim

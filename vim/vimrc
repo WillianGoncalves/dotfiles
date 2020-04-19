@@ -1,63 +1,47 @@
-" A VIM config file.
-"
-" Maintainer:	Willian Goncalves <w.goncalves91@gmail.com>
-" Thanks to:    Guilherme Gonçalves <inacio.guilherme@gmail.com>
-" Last change:	2017 Out 02
-"
-" To use it, copy it to
-"  for Unix and OS/2:  ~/.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	 for OpenVMS:  sys$login:.vimrc
-
-
 set nocompatible               " be iMproved, required
 set encoding=utf-8             " Use utf-8
 
+" Automatically installs the Vim-Plug if necessary
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin('~/.vim/plugged')
+function! s:SourceConfigFilesIn(directory)
+  let directory_splat = '~/.vim/' . a:directory . '/*'
+  for config_file in split(glob(directory_splat), '\n')
+    if filereadable(config_file)
+      execute 'source' config_file
+    endif
+  endfor
+endfunction
+
+call plug#begin('~/.vim/bundle')
+call s:SourceConfigFilesIn('rcplugins')
+
+" remove?
 Plug 'xolox/vim-misc'
-Plug 'valloric/youcompleteme', { 'do': './install.py --tern-completer' }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
-Plug 'editorconfig/editorconfig-vim'
-Plug 'sheerun/vim-polyglot'
-Plug 'jiangmiao/auto-pairs' "Vim plugin, insert or delete brackets, parens, quotes in pair
-Plug 'alvan/vim-closetag' "Auto close (X)HTML tags
-Plug 'xolox/vim-session' "Extended session management for Vim
-Plug 'terryma/vim-multiple-cursors' "True Sublime Text style multiple selections for Vim
-Plug 'scrooloose/nerdcommenter' "Code comment plugin
 Plug 'maksimr/vim-jsbeautify', {'do': 'git submodule update --init --recursive'}
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+
+" remove!
+Plug 'terryma/vim-multiple-cursors' "True Sublime Text style multiple selections for Vim
+
+" replace
+Plug 'valloric/youcompleteme', { 'do': './install.py --tern-completer' } " replace with coc.vim
+Plug 'alvan/vim-closetag' " replace with tpope/vim-endwise?
+Plug 'vim-airline/vim-airline' " replace with lighline
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive' " replace with vim-gitbranch?
+Plug 'airblade/vim-gitgutter' " vim-signfy?
+
+" verificar relação com coc.vim para os seguintes plugins:
 Plug 'dense-analysis/ale', { 'commit': 'd837169f1d10f0fee605cc17564c68563db94601' } "Check syntax in Vim asynchronously and fix files, with Language Server Protocol (LSP) support
 Plug 'honza/vim-snippets'
 Plug 'https://github.com/sirver/ultisnips.git'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'scrooloose/nerdtree' "A tree explorer plugin for vim
-Plug 'Xuyuanp/nerdtree-git-plugin' "A plugin of NERDTree showing git status
-Plug 'tpope/vim-surround' "Quoting/parenthesizing made simple
-Plug 'tyrannicaltoucan/vim-deep-space' "Vim theme
-Plug 'suan/vim-instant-markdown', { 'do': 'sudo npm install -g instant-markdown-d' } "Instant Markdown previews from Vim!
-Plug 'tpope/vim-repeat' "Enable repeating supported plugin maps with '.'
-Plug 'Yggdroot/indentLine' "A vim plugin to display the indention levels with thin vertical lines
-Plug 'junegunn/vim-easy-align' "A Vim alignment plugin
-Plug 'lervag/vimtex' "A modern vim plugin for editing LaTeX files
-Plug 'kshenoy/vim-signature' "Plugin to toggle, display and navigate marks
-Plug 'airblade/vim-gitgutter' "A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks and partial hunks.
-Plug 'tpope/vim-fugitive'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-"Fzf already includes a Rg command, but the vim-ripgrep has some advantages
-"like send the search result to quickfix automatically and search for the word
-"under cursor. Vim-ripgrep must be included after fzf so that the RG command
-"is overrided with the vim-ripgrep's Rg command.
-Plug 'jremmen/vim-ripgrep'
-
 
 call plug#end()
 
@@ -143,7 +127,7 @@ endif " has("autocmd")
 " Only define it when not defined already.
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
+        \ | wincmd p | diffthis
 endif
 
 if has('langmap') && exists('+langnoremap')
@@ -158,7 +142,7 @@ set tags=tags;/
 
 " window settings
 syntax enable
-colorscheme deep-space 
+colorscheme deep-space
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scrollbar
@@ -168,7 +152,7 @@ set guioptions-=L  "remove left-hand scrollbar
 set guifont=FuraMonoForPowerline\ Nerd\ Font
 
 " split style for monokay
-set fillchars+=vert:\ 
+set fillchars+=vert:\
 hi! VertSplit guibg=#293031 ctermbg=238
 
 " jsbeautify
@@ -240,7 +224,7 @@ set autoread
 " indentLine
 let g:indentLine_enabled=1
 let g:indentLine_char='|'
-set listchars=tab:\┆\ 
+set listchars=tab:\┆\
 set list
 
 " ==== NERD tree
@@ -264,8 +248,8 @@ let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 " disable auto-hide
 let g:vim_json_syntax_conceal = 0
 set conceallevel=0
-set cole=0 
-au FileType * setl cole=0 
+set cole=0
+au FileType * setl cole=0
 
 " spell
 set nospell
@@ -286,7 +270,7 @@ let g:airline#extensions#hunks#enabled=0
 " hide end of buffer '~'
 "if has('gui_running')
     "hi! EndOfBuffer guibg=bg guifg=bg
-"else 
+"else
     "hi! EndOfBuffer ctermbg=bg ctermfg=bg
 "endif
 

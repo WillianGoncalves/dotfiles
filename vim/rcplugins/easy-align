@@ -1,0 +1,5 @@
+" A Vim alignment plugin
+
+Plug 'junegunn/vim-easy-align'
+
+" vim:ft=vim
