@@ -40,6 +40,8 @@ To check which plugins are making vim slow:
 - `]h`: go to next hunk of changes
 - `[h`: go to previous hunk of changes
 - `\ntt`: nerd tree toggle
+- `CTRL+j`: jump to next placeholder within a snippet
+- `CTRL+k`: jump to previous placeholder within a snippet
 
 ## FZF, ripgrep and fd
 
@@ -64,6 +66,15 @@ the fzf's `Rg` command is overrided with the vim-ripgrep's `Rg` command.
 | CTRL+f  | Find content, uses fzf's `Rg` command         | [ripgrep](https://github.com/BurntSushi/ripgrep#installation)   |
 | Rg      | Find content, uses vim-ripgrep's `Rg` command | [ripgrep](https://github.com/BurntSushi/ripgrep#installation)   |
 
+## Coc
+
+To use snippets, it is necessary to install the [vim-snippets](https://github.com/honza/vim-snippets) plugin. Then run:
+
+```
+:CocInstall coc-json
+:CocInstall coc-snippets
+:CocInstall coc-ultisnips
+```
 
 ## Vimtex
 

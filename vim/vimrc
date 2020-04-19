@@ -31,7 +31,6 @@ Plug 'tomtom/tlib_vim'
 Plug 'terryma/vim-multiple-cursors' "True Sublime Text style multiple selections for Vim
 
 " replace
-Plug 'valloric/youcompleteme', { 'do': './install.py --tern-completer' } " replace with coc.vim
 Plug 'alvan/vim-closetag' " replace with tpope/vim-endwise?
 Plug 'vim-airline/vim-airline' " replace with lighline
 Plug 'vim-airline/vim-airline-themes'
@@ -40,8 +39,6 @@ Plug 'airblade/vim-gitgutter' " vim-signfy?
 
 " verificar relação com coc.vim para os seguintes plugins:
 Plug 'dense-analysis/ale', { 'commit': 'd837169f1d10f0fee605cc17564c68563db94601' } "Check syntax in Vim asynchronously and fix files, with Language Server Protocol (LSP) support
-Plug 'honza/vim-snippets'
-Plug 'https://github.com/sirver/ultisnips.git'
 
 call plug#end()
 
@@ -170,12 +167,6 @@ set directory=/tmp
 " session settings
 let g:session_autosave = 'no'
 let g:session_autoload = 'no'
-
-" youcompleteme
-let g:ycm_add_preview_to_completeopt=0
-let g:ycm_confirm_extra_conf=0
-let g:ycm_filepath_blacklist = {}
-set completeopt-=preview
 
 " ale
 " Fix files with prettier, and then ESLint.
