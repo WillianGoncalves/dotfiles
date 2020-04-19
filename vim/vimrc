@@ -151,8 +151,8 @@ set guioptions-=L  "remove left-hand scrollbar
 " font
 set guifont=FuraMonoForPowerline\ Nerd\ Font
 
-" split style for monokay
-set fillchars+=vert:\
+" vertical split separator, note the whitespace: '\ '
+set fillchars+=vert:\ 
 hi! VertSplit guibg=#293031 ctermbg=238
 
 " jsbeautify
@@ -226,24 +226,6 @@ let g:indentLine_enabled=1
 let g:indentLine_char='|'
 set listchars=tab:\┆\
 set list
-
-" ==== NERD tree
-" Open the project tree and expose current file in the nerdtree with Ctrl-\
-" " calls NERDTreeFind iff NERDTree is active, current window contains a modifiable file, and we're not in vimdiff
-function! OpenNerdTree()
-  if &modifiable && strlen(expand('%')) > 0 && !&diff
-    NERDTreeFind
-  else
-    NERDTreeToggle
-  endif
-endfunction
-nnoremap <silent> <C-\> :call OpenNerdTree()<CR>
-let NERDTreeShowHidden=1
-let NERDTreeNodeDelimiter="\u00a0"
-
-" nerdtree-syntax-highlight
-let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
-let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 
 " disable auto-hide
 let g:vim_json_syntax_conceal = 0

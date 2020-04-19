@@ -1,4 +1,21 @@
 Plug 'scrooloose/nerdtree' " A tree explorer plugin for vim
 Plug 'Xuyuanp/nerdtree-git-plugin' " A plugin of NERDTree showing git status
 
+function! OpenNerdTree()
+  if &modifiable && strlen(expand('%')) > 0 && !&diff
+    NERDTreeFind
+  else
+    NERDTreeToggle
+  endif
+endfunction
+
+nnoremap <silent> <C-\> :call OpenNerdTree()<CR>
+nnoremap <silent> <Leader>ntt :NERDTreeToggle<CR>
+
+let g:NERDTreeShowHidden=1
+let g:NERDTreeNodeDelimiter="\u00a0"
+
+" close vim if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 " vim:ft=vim

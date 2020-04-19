@@ -39,6 +39,7 @@ To check which plugins are making vim slow:
 - `[e`: go to previous error
 - `]h`: go to next hunk of changes
 - `[h`: go to previous hunk of changes
+- `\ntt`: nerd tree toggle
 
 ## FZF, ripgrep and fd
 
