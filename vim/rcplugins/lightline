@@ -12,12 +12,12 @@ let g:lightline = {
       \ 'active': {
       \   'left': [
       \     ['mode', 'paste'],
-      \     ['gitbranch', 'readonly', 'filename', 'modified'],
+      \     ['gitbranch', 'readonly'],
+      \     ['filename', 'modified'],
       \   ],
       \   'right': [
       \     [ 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ],
-      \     [ 'lineinfo' ],
-      \     [ 'percent' ],
+      \     [ 'percent', 'lineinfo' ],
       \     [ 'gitstatus', 'filetype' ],
       \   ]
       \ },
