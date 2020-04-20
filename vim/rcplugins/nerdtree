@@ -17,5 +17,7 @@ let g:NERDTreeNodeDelimiter="\u00a0"
 
 " close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" open nerdtree automatically when vim starts up
+autocmd vimenter * NERDTree
 
 " vim:ft=vim
