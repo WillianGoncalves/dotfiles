@@ -1,5 +1,4 @@
 Plug 'itchyny/lightline.vim'
-Plug 'mengelbrecht/lightline-bufferline'
 Plug 'maximbaz/lightline-ale'
 
 function! GitStatus()
@@ -21,16 +20,14 @@ let g:lightline = {
       \     [ 'gitstatus', 'filetype' ],
       \   ]
       \ },
-      \ 'tabline': {'left': [['buffers']], 'right': [['close']]},
+      \ 'tabline': {'left': [['tabs']], 'right': [['close']]},
       \ 'component_expand': {
-      \   'buffers': 'lightline#bufferline#buffers',
       \   'linter_infos': 'lightline#ale#infos',
       \   'linter_warnings': 'lightline#ale#warnings',
       \   'linter_errors': 'lightline#ale#errors',
       \   'linter_ok': 'lightline#ale#ok',
       \ },
       \ 'component_type': {
-      \   'buffers': 'tabsel',
       \   'linter_infos': 'right',
       \   'linter_warnings': 'warning',
       \   'linter_errors': 'error',
