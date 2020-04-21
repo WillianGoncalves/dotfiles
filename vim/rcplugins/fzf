@@ -1,4 +1,40 @@
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+" search content in files using rg
+command! -nargs=* -bang RG call fzf#vim#grep(
+      \ 'rg --line-number --ignore-case --hidden --color=always --smart-case -g "!.git" '.shellescape(<q-args>),
+      \ 1,
+      \ fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}),
+      \ <bang>0)
+" map CTRL+F to :RG
+nnoremap <C-f> :RG<Cr>
+
+" search content in files using ag
+command! -nargs=* -bang Ag call fzf#vim#ag(
+      \ <q-args>,
+      \ fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}),
+      \ <bang>0)
+
+" search files
+let $FZF_DEFAULT_COMMAND = "fd --type f"
+" map CTRL+P to :Files
+nnoremap <C-p> :Files<Cr>
+
+" to see more values to configure the colors, see: https://github.com/tyrannicaltoucan/vim-deep-space/blob/master/colors/deep-space.vim
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
 " vim:ft=vim

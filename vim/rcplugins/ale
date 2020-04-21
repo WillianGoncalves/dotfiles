@@ -2,4 +2,9 @@
 
 Plug 'dense-analysis/ale', { 'commit': 'd837169f1d10f0fee605cc17564c68563db94601' }
 
+nmap ]e :ALENext<cr>
+nmap [e :ALEPrevious<cr>
+let g:ale_linters = {'javascript': ['eslint']}
+let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
+
 " vim:ft=vim

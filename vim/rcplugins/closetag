@@ -2,4 +2,6 @@
 
 Plug 'alvan/vim-closetag'
 
+let g:closetag_filenames = "*.html.erb,*.html,*.xhtml,*.phtml,*.js"
+
 " vim:ft=vim

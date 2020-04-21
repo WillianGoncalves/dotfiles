@@ -1,0 +1,86 @@
+set nocompatible
+set encoding=utf-8             " Use utf-8
+set linespace=7
+set backspace=indent,eol,start
+set history=50     " keep 50 lines of command line history
+set ruler          " show the cursor position all the time
+set showcmd        " display incomplete commands
+set incsearch      " do incremental searching
+set number relativenumber " display line numbers
+set numberwidth=1
+set nowrap
+set hlsearch
+set updatetime=100
+set laststatus=2 " show lightline
+set showtabline=2 " show tabline
+set tags=tags;/ " search tags
+set guifont=FuraMonoForPowerline\ Nerd\ Font
+
+" vertical split separator, note the whitespace: '\ '
+set fillchars+=vert:\ 
+set backupdir=/tmp " Store swap files in fixed location, not current directory.
+set undodir=/tmp " Store swap files in fixed location, not current directory.
+set directory=/tmp " Store swap files in fixed location, not current directory.
+set scrolloff=5
+set cul " highlighting current line
+set backup       " keep a backup file (restore to previous version)
+set undofile     " keep an undo file (undo changes after closing)
+set hlsearch " when there is a previous search pattern, highlight all its matches
+set autoread " auto refresh files
+set nospell
+set tabstop=2 " default tabsize
+set shiftwidth=2
+set expandtab "Use the appropriate number of spaces to insert a <Tab>
+
+" set split sides
+set splitbelow
+set splitright
+
+" config hidden characters exibition.
+" use with ':set list' and disable with ':set nolist'
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+set nolist
+
+" Disable bell
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
+
+if has('gui_running')
+  set guioptions-=m  "remove menu bar
+  set guioptions-=T  "remove toolbar
+  set guioptions-=r  "remove right-hand scrollbar
+  set guioptions-=L  "remove left-hand scrollbar
+  set guioptions-=e  "remove default tabline
+endif
+
+syntax enable " switches on syntax highlighting
+colorscheme deep-space
+
+let g:polyglot_disabled = ['latex'] " disable LaTeX-Box to use vimtex
+
+" disable auto-hide
+let g:vim_json_syntax_conceal = 0
+set conceallevel=0
+au FileType * setl cole=0
+
+" improve performance
+set regexpengine=1
+set lazyredraw " don’t update screen during macro and script execution
+
+" git commit with 72 columns
+autocmd Filetype gitcommit setlocal spell textwidth=72
+
+if has('langmap') && exists('+langnoremap')
+  " Prevent that the langmap option applies to characters that result from a
+  " mapping. If unset (default), this may break plugins (but it's backward
+  " compatible).
+  set langnoremap
+endif
+
+" CTRL-U in insert mode deletes a lot. Use CTRL-G u to first break undo,
+" so that you can undo CTRL-U after inserting a line break.
+inoremap <C-U> <C-G>u<C-U>
+
+hi! VertSplit guibg=#293031 ctermbg=238
+
+" vim:ft=vim

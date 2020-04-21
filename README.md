@@ -34,14 +34,17 @@ To check which plugins are making vim slow:
 ## Utils
 
 - `CTRL+r`: find and replace selected text (visual mode)
-- `CTRL+j`: use snippet
-- `]e`: go to next error
-- `[e`: go to previous error
-- `]h`: go to next hunk of changes
-- `[h`: go to previous hunk of changes
-- `\ntt`: nerd tree toggle
-- `CTRL+j`: jump to next placeholder within a snippet
-- `CTRL+k`: jump to previous placeholder within a snippet
+- `]e`: go to next error (ale)
+- `[e`: go to previous error (ale)
+- `]h`: go to next hunk of changes (gitgutter)
+- `[h`: go to previous hunk of changes (gitgutter)
+- `\uh`: undo hunk (gitgutter)
+- `\ntt`: nerd tree toggle (nerdtree)
+- `CTRL+j`: jump to next placeholder within a snippet (coc)
+- `CTRL+k`: jump to previous placeholder within a snippet (coc)
+- `CTRL+n`: next snippet in snippet window (coc)
+- `CTRL+p`: previous snippet in snippet window (coc)
+- `TAB`: use snippet when in snippet window (coc)
 - `:Gread`: checkout current file
 
 ## Fugitive

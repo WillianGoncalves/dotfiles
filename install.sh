@@ -12,6 +12,7 @@ cd ~/.local/share/fonts && curl -fLo "Fira Mono.otf" https://github.com/ryanoasi
 echo Creating symlink for $BASEDIR/vim/vimrc
 ln -sf $BASEDIR/vim/vimrc ~/.vimrc
 ln -sf $BASEDIR/vim/rcplugins ~/.vim/rcplugins
+ln -sf $BASEDIR/vim/rcfiles ~/.vim/rcfiles
 # Using configuration file for COC plugin: https://github.com/neoclide/coc.nvim/wiki/Using-the-configuration-file
 ln -sf $BASEDIR/vim/coc-settings.json ~/.vim/coc-settings.json
 sudo vim +PlugInstall +qall
