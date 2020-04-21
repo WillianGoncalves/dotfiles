@@ -1,0 +1,5 @@
+" Auto close (X)HTML tags
+
+Plug 'alvan/vim-closetag'
+
+" vim:ft=vim

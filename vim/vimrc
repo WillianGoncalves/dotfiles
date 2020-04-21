@@ -27,18 +27,9 @@ Plug 'maksimr/vim-jsbeautify', {'do': 'git submodule update --init --recursive'}
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 
-" remove!
-Plug 'terryma/vim-multiple-cursors' "True Sublime Text style multiple selections for Vim
-
-" replace
-Plug 'alvan/vim-closetag' " replace with tpope/vim-endwise?
-
-" verificar relação com coc.vim para os seguintes plugins:
-Plug 'dense-analysis/ale', { 'commit': 'd837169f1d10f0fee605cc17564c68563db94601' } "Check syntax in Vim asynchronously and fix files, with Language Server Protocol (LSP) support
-
 call plug#end()
 
-:set linespace=7
+set linespace=7
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
