@@ -14,7 +14,7 @@ set updatetime=100
 set laststatus=2 " show lightline
 set showtabline=2 " show tabline
 set tags=tags;/ " search tags
-set guifont=FuraMonoForPowerline\ Nerd\ Font
+set guifont=FiraMono
 
 " vertical split separator, note the whitespace: '\ '
 set fillchars+=vert:\ 

@@ -7,7 +7,7 @@ sudo apt-get install build-essential cmake
 
 # install powerline fonts
 mkdir -p ~/.local/share/fonts
-cd ~/.local/share/fonts && curl -fLo "Fira Mono.otf" https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraMono/Regular/complete/Fura%20Mono%20Regular%20for%20Powerline%20Nerd%20Font%20Complete.otf?raw=true
+cp $BASEDIR/vim/fonts/* ~/.local/share/fonts
 
 echo Creating symlink for $BASEDIR/vim/vimrc
 ln -sf $BASEDIR/vim/vimrc ~/.vimrc
