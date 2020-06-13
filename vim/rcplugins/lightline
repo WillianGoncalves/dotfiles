@@ -20,7 +20,7 @@ let g:lightline = {
       \     [ 'gitstatus', 'filetype' ],
       \   ]
       \ },
-      \ 'tabline': {'left': [['tabs']], 'right': [['close']]},
+      \ 'tabline': {'left': [['tabs']], 'right': [[]]},
       \ 'component_expand': {
       \   'linter_infos': 'lightline#ale#infos',
       \   'linter_warnings': 'lightline#ale#warnings',

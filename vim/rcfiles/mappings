@@ -4,9 +4,6 @@ nnoremap <silent> <Leader>/ :nohlsearch<CR>
 " Find/Replace selected text
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
-" auto indent on paste
-nnoremap p p=`]
-
 " current directory abreviation '%%'
 " while editing file /some/path/myfile.txt, typing :e %%/ on the command line will expand to :e /some/path/
 cabbr <expr> %% expand('%:p:h')
