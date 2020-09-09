@@ -1,3 +1,4 @@
+" this plugin is used by coc-snippets
 Plug 'honza/vim-snippets'
 
 " vim:ft=vim
