@@ -2,24 +2,22 @@
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Use <c-space> to trigger completion.
+" use <c-space> to trigger completion
 inoremap <silent><expr> <c-space> coc#refresh()
 
-" Use tab for trigger completion.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+" jump to next snippet
+inoremap <expr> <c-j> pumvisible() ? "\<c-n>" : "\<c-j>"
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+" jump to previous snippet
+inoremap <expr> <c-k> pumvisible() ? "\<c-p>" : "\<c-p>"
 
+" confirm snippet
+inoremap <expr> <c-c> pumvisible() ? coc#_select_confirm() : "\<c-c>"
+
+" jump to next placeholder on snippet
 let g:coc_snippet_next = '<c-n>'
+
+" jump to previous placeholder on snippet
 let g:coc_snippet_prev = '<c-p>'
 
 " vim:ft=vim
