@@ -12,7 +12,7 @@ inoremap <expr> <c-j> pumvisible() ? "\<c-n>" : "\<c-j>"
 inoremap <expr> <c-k> pumvisible() ? "\<c-p>" : "\<c-p>"
 
 " confirm snippet
-inoremap <expr> <c-c> pumvisible() ? coc#_select_confirm() : "\<c-c>"
+inoremap <expr> <c-c> pumvisible() ? "\<c-y>" : "\<c-c>"
 
 " jump to next placeholder on snippet
 let g:coc_snippet_next = '<c-n>'
