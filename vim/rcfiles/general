@@ -32,6 +32,11 @@ set tabstop=2 " default tabsize
 set shiftwidth=2
 set expandtab "Use the appropriate number of spaces to insert a <Tab>
 
+" quickfix configuration
+"   usetab: do not duplicate a tab if the document is already open
+"   newtab: open the document in a new tab
+set switchbuf+=usetab,newtab
+
 " set split sides
 set splitbelow
 set splitright
