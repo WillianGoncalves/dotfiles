@@ -9,10 +9,16 @@ inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <expr> <c-j> pumvisible() ? "\<c-n>" : "\<c-j>"
 
 " jump to previous snippet
-inoremap <expr> <c-k> pumvisible() ? "\<c-p>" : "\<c-p>"
+inoremap <expr> <c-k> pumvisible() ? "\<c-p>" : "\<c-k>"
 
-" confirm snippet
+" confirm snippet with CTRL+C[onfirm] or TAB
+" <c-c> is useful when there are many options
+" and we are navigating with <c-j>/<c-k>
 inoremap <expr> <c-c> pumvisible() ? "\<c-y>" : "\<c-c>"
+
+" <TAB> is useful when there are one option,
+" or the desired option is the first
+inoremap <expr> <TAB> pumvisible() ? "\<c-y>" : "\<TAB>"
 
 " jump to next placeholder on snippet
 let g:coc_snippet_next = '<c-n>'
