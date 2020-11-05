@@ -1,12 +1,9 @@
-## Install
+## Setup
 Install vim-gtk: `sudo apt install vim-gtk`
 
-Clone this repository and run `./install.sh`
+**Some plugins require `node` installed.**
 
-Install **youcompleteme** plugin:
-- `sudo apt-get install build-essential cmake`
-- `sudo apt-get install python-dev python3-dev`
-- `cd ~/.vim/plugged/youcompleteme && sudo ./install.sh`
+Clone this repository and run `./install.sh`
 
 ## Plugins manager
 Plugin manager: [vim-plug](https://github.com/junegunn/vim-plug)
