@@ -87,6 +87,18 @@ To use snippets, it is necessary to install the [vim-snippets](https://github.co
 :CocInstall coc-snippets
 :CocInstall coc-ultisnips
 ```
+## Tags
+
+To use tags, install exuberant-ctags on Ubuntu:
+
+```
+sudo apt-get update -y
+sudo apt-get install -y exuberant-ctags
+```
+
+And create the `~/.ctags` configuration file. Copy the content from the `ctags-config` file in this project.
+
+The **vim-gutentags** plugin will use it.
 
 ## Vimtex
 
