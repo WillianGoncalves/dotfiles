@@ -93,9 +93,15 @@ sudo apt-get update -y
 sudo apt-get install -y exuberant-ctags
 ```
 
-And create the `~/.ctags` configuration file. Copy the content from the `ctags-config` file in this project.
+And create the `~/.ctags` configuration file (copy the content from the `ctags-config` file in this project).
 
 The **vim-gutentags** plugin will use it.
+
+Finally, create a `~/.gitignore_global` file, add `tags` to it and configure git to use this file:
+
+```
+git config --global core.excludesfile ~/.gitignore_global
+```
 
 ## Vimtex
 
