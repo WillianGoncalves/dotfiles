@@ -7,7 +7,7 @@ function! GitStatus()
 endfunction
 
 let g:lightline = {
-      \ 'colorscheme': 'one',
+      \ 'colorscheme': 'deepspace',
       \ 'active': {
       \   'left': [
       \     ['mode', 'paste'],
