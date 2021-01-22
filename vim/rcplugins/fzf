@@ -5,7 +5,7 @@ Plug 'junegunn/fzf.vim'
 command! -nargs=* -bang RG call fzf#vim#grep(
       \ "rg --line-number --ignore-case --hidden --color=always --smart-case -g '!.git' -g '!*.min.js' -- ".shellescape(<q-args>),
       \ 1,
-      \ fzf#vim#with_preview(),
+      \ fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}),
       \ <bang>0)
 
 " search content in files using ag
@@ -15,7 +15,7 @@ command! -nargs=* -bang Ag call fzf#vim#ag(
       \ <bang>0)
 
 " map CTRL+F to :Ag
-nnoremap <C-f> :Ag<Cr>
+nnoremap <C-f> :RG<Cr>
 
 " search files
 let $FZF_DEFAULT_COMMAND = "fd --type f"
