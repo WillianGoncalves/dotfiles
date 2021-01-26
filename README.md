@@ -61,19 +61,33 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 ```
 
-**Fzf** already includes a `Rg` command, but the **vim-ripgrep** has some advantages
-like send the search result to quickfix automatically and search for
-the word under cursor. Vim-ripgrep must be included after fzf so that
-the fzf's `Rg` command is overrided with the vim-ripgrep's `Rg` command.
+**Fzf** already includes a `Rg` command, but the **vim-ripgrep** has some
+advantages like send the search result to quickfix automatically, search for
+the word under cursor and specify search parameters (like --glob/-g).  For that
+reason we use both, and to do so, we create a custom command called `RGDynamic`
+to be used by **fzf**. So we have:
 
-- The `:Rg` command requires [ripgrep](https://github.com/BurntSushi/ripgrep#installation) installed on Ubuntu and is mapped to CTRL+F (find in files).
-- The `:Files` command is mapped to CTRL+P.
+- `RGDynamic`, which uses fzf plugin, mapped to CTRL+f;
+- `Rg`, which uses vim-ripgrep plugin.
+
+Vim-ripgrep plugin must be included after fzf so that the fzf's `Rg` command is
+overrided with the vim-ripgrep's `Rg` command. Algo, it requires
+[ripgrep](https://github.com/BurntSushi/ripgrep#installation) to be installed
+on Ubuntu.
 
 | Command | Description                                   | Requires                                                        |
 | ------- | --------------------------------------------- | --------------------------------------------------------------- |
 | CTRL+p  | Find files                                    | [fd](https://github.com/sharkdp/fd)                             |
 | CTRL+f  | Find content, uses fzf's `Rg` command         | [ripgrep](https://github.com/BurntSushi/ripgrep#installation)   |
 | Rg      | Find content, uses vim-ripgrep's `Rg` command | [ripgrep](https://github.com/BurntSushi/ripgrep#installation)   |
+
+In the results window:
+
+- TAB: select and move cursor down
+- SHIFT+TAB: select and move cursor up (for some reason, neovim doesn't support the key)
+- ALT+a: select all
+- ALT+d: deselect all
+- ENTER / CTRL+x / CTRL+v / CTRL+t: open selected entries (current window / horizontal splits / vertical splits / tabs), and send them to quickfix
 
 ## Coc
 

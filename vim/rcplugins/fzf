@@ -1,21 +1,18 @@
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" search content in files using rg
-command! -nargs=* -bang RG call fzf#vim#grep(
-      \ "rg --line-number --ignore-case --hidden --color=always --smart-case -g '!.git' -g '!*.min.js' -- ".shellescape(<q-args>),
-      \ 1,
-      \ fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}),
-      \ <bang>0)
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --line-number --no-heading --smart-case -- %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
 
-" search content in files using ag
-command! -nargs=* -bang Ag call fzf#vim#ag(
-      \ <q-args>,
-      \ fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}),
-      \ <bang>0)
-
-" map CTRL+F to :Ag
-nnoremap <C-f> :RG<Cr>
+" RGDynamic = search while typing
+command! -nargs=* -bang RGDynamic call RipgrepFzf(<q-args>, <bang>0)
+" search content in files
+nnoremap <C-f> :RGDynamic<Cr>
 
 " search files
 let $FZF_DEFAULT_COMMAND = "fd --type f"
