@@ -1,5 +1,5 @@
 " map :nohl to back slask (Leader)
-nnoremap <silent> <Leader>/ :nohlsearch<CR>
+nnoremap <Space> :nohlsearch<CR>
 
 " Find/Replace selected text
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
