@@ -58,6 +58,10 @@ if has('gui_running')
   set guioptions-=e  "remove default tabline
 endif
 
+if has('nvim')
+  set inccommand=nosplit " enable live substitution on neovim
+endif
+
 syntax enable " switches on syntax highlighting
 
 let g:deepspace_italics=1
