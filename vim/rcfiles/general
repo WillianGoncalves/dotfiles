@@ -60,6 +60,11 @@ endif
 
 if has('nvim')
   set inccommand=nosplit " enable live substitution on neovim
+
+  autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+  " notification after file change
+  autocmd FileChangedShellPost *
+        \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 endif
 
 syntax enable " switches on syntax highlighting
