@@ -1,6 +1,6 @@
 " Check syntax in Vim asynchronously and fix files, with Language Server Protocol (LSP) support
 
-Plug 'dense-analysis/ale', { 'commit': 'd837169f1d10f0fee605cc17564c68563db94601' }
+Plug 'dense-analysis/ale'
 
 nmap ]e :ALENext<cr>
 nmap [e :ALEPrevious<cr>
