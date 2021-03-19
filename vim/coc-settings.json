@@ -1,4 +1,7 @@
 {
   "suggest.noselect": false,
-  "suggest.floatEnable": false
+  "suggest.floatEnable": true,
+  "javascript.format.enabled": true,
+  "coc.preferences.jumpCommand": "tab drop",
+  "coc.preferences.extensionUpdateCheck": "weekly",
 }

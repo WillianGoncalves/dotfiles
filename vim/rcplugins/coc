@@ -26,4 +26,20 @@ let g:coc_snippet_next = '<c-n>'
 " jump to previous placeholder on snippet
 let g:coc_snippet_prev = '<c-p>'
 
+let g:coc_global_extensions = [
+  \ 'coc-json',
+  \ 'coc-snippets',
+  \ 'coc-ultisnips',
+  \ 'coc-tsserver'
+  \ ]
+
+inoremap <silent><expr> <down> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1, 1)\<cr>" : "\<down>"
+inoremap <silent><expr>  <up>  coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0, 1)\<cr>" :  "\<up>"
+
+" GoTo code navigation.
+nmap <silent> gD <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
 " vim:ft=vim

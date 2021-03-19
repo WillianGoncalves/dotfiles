@@ -91,13 +91,8 @@ In the results window:
 
 ## Coc
 
-To use snippets, it is necessary to install the [vim-snippets](https://github.com/honza/vim-snippets) plugin. Then run:
+To use snippets, it is necessary to install the [vim-snippets](https://github.com/honza/vim-snippets) plugin.
 
-```
-:CocInstall coc-json
-:CocInstall coc-snippets
-:CocInstall coc-ultisnips
-```
 ## Tags
 
 To use tags, install exuberant-ctags on Ubuntu:
