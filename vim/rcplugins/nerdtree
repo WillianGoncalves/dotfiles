@@ -13,6 +13,7 @@ nnoremap <silent> <C-\> :call OpenNerdTree()<CR>
 nnoremap <silent> <Leader>ntt :NERDTreeToggle<CR>
 
 let g:NERDTreeShowHidden=1
+let g:NERDTreeQuitOnOpen=1
 let g:NERDTreeNodeDelimiter="\u00a0"
 
 " close vim if the only window left open is a NERDTree
