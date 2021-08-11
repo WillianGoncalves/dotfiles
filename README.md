@@ -36,7 +36,6 @@ To check which plugins are making vim slow:
 - `]h`: go to next hunk of changes (gitgutter)
 - `[h`: go to previous hunk of changes (gitgutter)
 - `\uh`: undo hunk (gitgutter)
-- `\ntt`: nerd tree toggle (nerdtree)
 - `CTRL+n`: jump to next placeholder within a snippet (coc)
 - `CTRL+p`: jump to previous placeholder within a snippet (coc)
 - `CTRL+n`, `CTRL+j`: when the snippets window is opened, jump to next snippet option (coc)
