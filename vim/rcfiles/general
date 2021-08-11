@@ -84,6 +84,7 @@ au FileType * setl cole=0
 " improve performance
 set regexpengine=1
 set lazyredraw " don’t update screen during macro and script execution
+set re=0 " improve performance on typescript files
 
 " git commit with 72 columns
 autocmd Filetype gitcommit setlocal spell textwidth=72
