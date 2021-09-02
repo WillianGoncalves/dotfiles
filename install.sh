@@ -23,3 +23,4 @@ ln -sf $BASEDIR/vim/coc-settings.json ~/.config/nvim/coc-settings.json # Neovim
 sudo vim +PlugInstall +qall
 
 ln -sf $BASEDIR/tmux/.tmux.conf ~/.tmux.conf
+ln -sf $BASEDIR/zsh/.zshrc ~/.zshrc
