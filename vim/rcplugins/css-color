@@ -1,5 +1,0 @@
-" A very fast, multi-syntax context-sensitive color name highlighter
-
-Plug 'ap/vim-css-color'
-
-" vim:ft=vim
