@@ -1,7 +1,11 @@
-## Setup
-Install vim-gtk: `sudo apt install vim-gtk`
+## Requisites
 
-**Some plugins require `node` installed.**
+- bat
+- node
+- fd
+- rg
+
+## Setup
 
 Clone this repository and run `./install.sh`
 

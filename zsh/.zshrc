@@ -11,8 +11,7 @@ ZSH_THEME="af-magic"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
+# Uncomment the following line to use hyphen-insensitive completion. Case sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
@@ -94,6 +93,7 @@ alias robomongo='/usr/local/bin/robomongo/robo3t-1.3.1-linux-x86_64-7419c406/bin
 alias nvim='/home/willian/Applications/nvim.appimage'
 alias gco='git checkout $(git branch | fzf)'
 alias cdpl='cd /home/willian/Projects/o2/etherpad-docker/etherpad-src/etherpad-lite/node_modules && cd $(ls | fzf)'
+alias bat='/home/willian/.local/bin/bat'
 
 export VISUAL='/home/willian/Applications/nvim.appimage'
 export EDITOR="$VISUAL"
