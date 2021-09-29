@@ -1,10 +1,6 @@
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 
-let g:nvim_tree_auto_close = 1
-let g:nvim_tree_auto_ignore_ft = [ 'startify' ]
-let g:nvim_tree_width = 40
-
 nnoremap <C-\> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
