@@ -90,10 +90,10 @@ if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 alias robomongo='/usr/local/bin/robomongo/robo3t-1.3.1-linux-x86_64-7419c406/bin/robo3t'
-alias nvim='/home/willian/Applications/nvim.appimage'
+alias nvim='$HOME/Applications/nvim.appimage'
 alias gco='git checkout $(git branch | fzf)'
-alias cdpl='cd /home/willian/Projects/o2/etherpad-docker/etherpad-src/etherpad-lite/node_modules && cd $(ls | fzf)'
-alias bat='/home/willian/.local/bin/bat'
+alias cdpl='cd $HOME/Projects/o2/etherpad-docker/etherpad-src/etherpad-lite/node_modules && cd $(ls | fzf)'
+alias bat='$HOME/.local/bin/bat'
 
-export VISUAL='/home/willian/Applications/nvim.appimage'
+export VISUAL='$HOME/Applications/nvim.appimage'
 export EDITOR="$VISUAL"
