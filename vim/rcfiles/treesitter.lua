@@ -1,4 +1,3 @@
-lua <<EOF
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "javascript", "scss" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   ignore_install = {}, -- List of parsers to ignore installing
@@ -15,6 +14,3 @@ require'nvim-treesitter.configs'.setup {
     enable = false
   }
 }
-EOF
-
-" vim:ft=vim
