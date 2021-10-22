@@ -95,5 +95,9 @@ alias gco='git checkout $(git branch | fzf)'
 alias cdpl='cd $HOME/Projects/o2/etherpad-docker/etherpad-src/etherpad-lite/node_modules && cd $(ls | fzf)'
 alias bat='$HOME/.local/bin/bat'
 
+# autoload functions defined in "functions" folder
+fpath=($HOME/Projects/dotfiles/zsh/functions $fpath)
+autoload $fpath[1]/*(.:t)
+
 export VISUAL='$HOME/Applications/nvim.appimage'
 export EDITOR="$VISUAL"

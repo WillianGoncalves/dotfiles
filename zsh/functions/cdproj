@@ -1,0 +1,36 @@
+help() {
+  echo "Go to project."
+  echo
+  echo "Syntax: cdproj [-n|h]"
+  echo "options:"
+  echo " n  Open nvim in the project folder"
+  echo " h  Print this help"
+  echo
+}
+
+go_to_project() {
+  project=$(fd --hidden '\.git$' $HOME/Projects -x echo {//} | fzf;)
+  if [ -z "$project" ]; then
+    return
+  else
+    cd $project
+  fi
+}
+
+open_nvim=0
+
+while getopts "nh" option
+do
+  case $option in 
+    n) open_nvim=1 ;;
+    h) # display help
+      help
+      return ;;
+  esac
+done
+
+if [ $open_nvim -eq 1 ]; then
+  go_to_project && nvim .
+else
+  go_to_project
+fi
