@@ -4,6 +4,7 @@ BASEDIR=$(pwd)
 
 #install dependencies
 sudo apt-get install build-essential cmake
+yarn global add diagnostic-languageserver
 
 # create neovim config folder
 mkdir -p ~/.config/nvim/

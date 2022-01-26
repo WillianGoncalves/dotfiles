@@ -100,7 +100,11 @@ endif
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
+" highlights
 hi! VertSplit guibg=#293031 ctermbg=238
+" change color of coc floating window
+hi! CocFloating guibg=#232936
+hi! CocErrorFloat guifg=#b15e7c
 
 " https://github.com/tmux/tmux/issues/1246#issue-292083184
 if exists('+termguicolors')
