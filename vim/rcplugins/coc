@@ -44,5 +44,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap ]e <plug>(coc-diagnostic-next)
 nmap [e <plug>(coc-diagnostic-prev)
+nmap <leader>rf <Plug>(coc-refactor)
+nmap <leader>rn <Plug>(coc-rename)
 
 " vim:ft=vim
