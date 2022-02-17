@@ -1,11 +1,23 @@
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {
+    "bash",
+    "dockerfile",
+    "graphql",
     "hcl",
+    "html",
     "javascript",
     "jsdoc",
+    "json",
+    "jsonc",
+    "json5",
+    "latex",
     "prisma",
+    "prisma",
+    "regex",
+    "ruby",
     "scss",
-    "typescript"
+    "typescript",
+    "vim",
   }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   ignore_install = {}, -- List of parsers to ignore installing
   highlight = {
