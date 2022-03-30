@@ -31,7 +31,8 @@ let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-ultisnips',
   \ 'coc-tsserver',
-  \ 'coc-diagnostic'
+  \ 'coc-diagnostic',
+  \ 'coc-eslint'
   \ ]
 
 inoremap <silent><expr> <down> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1, 1)\<cr>" : "\<down>"
