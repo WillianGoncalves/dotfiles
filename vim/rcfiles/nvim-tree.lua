@@ -54,6 +54,12 @@ require'nvim-tree'.setup {
       -- list of mappings to set on the tree manually
       list = {}
     }
+  },
+
+  actions = {
+    open_file = {
+      quit_on_open = true
+    }
   }
 }
 
