@@ -8,4 +8,7 @@ nnoremap <leader>n :NvimTreeFindFile<CR>
 
 set termguicolors " this variable must be enabled for colors to be applied properly
 
+" automatically close the tab/vim when nvim-tree is the last window in the tab
+autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
+
 " vim:ft=vim
