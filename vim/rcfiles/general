@@ -31,7 +31,6 @@ set nospell
 set tabstop=2 " default tabsize
 set shiftwidth=2
 set expandtab "Use the appropriate number of spaces to insert a <Tab>
-set ignorecase "Make search case-insensitive
 
 " quickfix configuration
 "   usetab: do not duplicate a tab if the document is already open
