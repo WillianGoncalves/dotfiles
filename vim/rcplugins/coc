@@ -47,5 +47,7 @@ nmap ]e <plug>(coc-diagnostic-next)
 nmap [e <plug>(coc-diagnostic-prev)
 nmap <leader>rf <Plug>(coc-refactor)
 nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>ac  <Plug>(coc-codeaction)
+nmap <leader>qf <Plug>(coc-fix-current)
 
 " vim:ft=vim
