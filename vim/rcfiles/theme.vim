@@ -2,6 +2,7 @@
 augroup LightlineColorscheme
   autocmd!
   autocmd ColorScheme * call s:lightline_update()
+  autocmd VimEnter * call s:lightline_update()
 augroup END
 
 function! s:lightline_update()
