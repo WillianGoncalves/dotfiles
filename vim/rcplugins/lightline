@@ -9,7 +9,7 @@ endfunction
 "https://github.com/tyrannicaltoucan/vim-deep-space/blob/master/autoload/lightline/colorscheme/deepspace.vim
 " h: lightline-colorscheme
 let g:lightline = {
-      \ 'colorscheme': 'deepspace',
+      \ 'colorscheme': 'deepspace2',
       \ 'active': {
       \   'left': [
       \     ['mode', 'paste'],

@@ -70,7 +70,7 @@ endif
 syntax enable " switches on syntax highlighting
 
 let g:deepspace_italics=1
-colorscheme deep-space
+colorscheme deepspace2
 exec "hi MatchParen guibg=#1b202a guifg=#c47ebd"
 
 let g:polyglot_disabled = ['latex'] " disable LaTeX-Box to use vimtex
