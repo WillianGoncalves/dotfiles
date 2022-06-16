@@ -22,18 +22,6 @@ let g:lightline = {
       \   ]
       \ },
       \ 'tabline': {'left': [['tabs']], 'right': [[]]},
-      \ 'component_expand': {
-      \   'linter_infos': 'lightline#ale#infos',
-      \   'linter_warnings': 'lightline#ale#warnings',
-      \   'linter_errors': 'lightline#ale#errors',
-      \   'linter_ok': 'lightline#ale#ok',
-      \ },
-      \ 'component_type': {
-      \   'linter_infos': 'right',
-      \   'linter_warnings': 'warning',
-      \   'linter_errors': 'error',
-      \   'linter_ok': 'right',
-      \ },
       \ 'component_function': {'gitbranch': 'FugitiveHead', 'gitstatus': 'GitStatus'}
       \ }
 
