@@ -71,7 +71,6 @@ syntax enable " switches on syntax highlighting
 
 let g:deepspace_italics=1
 colorscheme deepspace2
-exec "hi MatchParen guibg=#1b202a guifg=#c47ebd"
 
 let g:polyglot_disabled = ['latex'] " disable LaTeX-Box to use vimtex
 
@@ -99,18 +98,11 @@ endif
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
-" highlights
-hi! VertSplit guibg=#293031 ctermbg=238
-" change color of coc floating window
-hi! CocFloating guibg=#232936
-hi! CocErrorFloat guifg=#b15e7c
-
 " https://github.com/tmux/tmux/issues/1246#issue-292083184
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
-"set termguicolors
 
 " vim:ft=vim

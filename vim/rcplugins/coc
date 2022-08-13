@@ -6,19 +6,28 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 inoremap <silent><expr> <c-space> coc#refresh()
 
 " jump to next snippet
-inoremap <expr> <c-j> pumvisible() ? "\<c-n>" : "\<c-j>"
+inoremap <expr> <c-j> coc#pum#visible() ? coc#pum#next(1) : "\<c-j>"
 
 " jump to previous snippet
-inoremap <expr> <c-k> pumvisible() ? "\<c-p>" : "\<c-k>"
-
-" confirm snippet with CTRL+C[onfirm] or TAB
-" <c-c> is useful when there are many options
-" and we are navigating with <c-j>/<c-k>
-inoremap <expr> <c-c> pumvisible() ? "\<c-y>" : "\<c-c>"
+inoremap <expr> <c-k> coc#pum#visible() ? coc#pum#prev(1) : "\<c-k>"
 
 " <TAB> is useful when there are one option,
 " or the desired option is the first
-inoremap <expr> <TAB> pumvisible() ? "\<c-y>" : "\<TAB>"
+"inoremap <expr> <TAB> pumvisible() ? "\<c-y>" : "\<TAB>"
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 " jump to next placeholder on snippet
 let g:coc_snippet_next = '<c-n>'
@@ -35,8 +44,8 @@ let g:coc_global_extensions = [
   \ 'coc-eslint'
   \ ]
 
-inoremap <silent><expr> <down> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1, 1)\<cr>" : "\<down>"
-inoremap <silent><expr>  <up>  coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0, 1)\<cr>" :  "\<up>"
+inoremap <silent><expr> <down> coc#float#has_scroll() ? coc#pum#scroll(1) : "\<down>"
+inoremap <silent><expr>  <up>  coc#float#has_scroll() ? coc#pum#scroll(0) :  "\<up>"
 
 " GoTo code navigation.
 nmap <silent> gD <Plug>(coc-definition)
