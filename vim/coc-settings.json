@@ -9,6 +9,11 @@
     "rounded": true,
     "borderhighlight": "CocFloatDividingLine"
   },
+  "hover.floatConfig": {
+    "border": true,
+    "rounded": true,
+    "borderhighlight": "CocFloatDividingLine"
+  },
   "suggest.noselect": true,
   "javascript.format.enabled": true,
   "coc.preferences.jumpCommand": "tab drop",
