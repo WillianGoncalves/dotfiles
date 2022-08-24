@@ -47,6 +47,17 @@ let g:coc_global_extensions = [
 inoremap <silent><expr> <down> coc#float#has_scroll() ? coc#pum#scroll(1) : "\<down>"
 inoremap <silent><expr>  <up>  coc#float#has_scroll() ? coc#pum#scroll(0) :  "\<up>"
 
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
 " GoTo code navigation.
 nmap <silent> gD <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
