@@ -58,7 +58,7 @@ return packer.startup(function(use)
   use { 'ludovicchabant/vim-gutentags' }
   use { 'Yggdroot/indentLine' }
   use { 'suan/vim-instant-markdown', { run = 'sudo npm install -g instant-markdown-d' } }
-  -- lightline
+
   use { 'scrooloose/nerdcommenter' }
   use { 'kyazdani42/nvim-web-devicons' }
   use { 'kyazdani42/nvim-tree.lua' }
@@ -111,6 +111,10 @@ return packer.startup(function(use)
 
 	-- Telescope
   use { 'nvim-telescope/telescope.nvim' }
+
+  -- lightline
+  use { 'itchyny/lightline.vim' }
+  use { 'josa42/nvim-lightline-lsp' }
 
 	-- Git
 	--use({ "lewis6991/gitsigns.nvim", commit = "c18e016864c92ecf9775abea1baaa161c28082c3" })
