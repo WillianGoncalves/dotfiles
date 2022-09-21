@@ -15,7 +15,7 @@ set laststatus=2 " show lightline
 set showtabline=2 " show tabline
 set tags=tags;/ " search tags
 set guifont=FiraMono
-
+set clipboard+=unnamedplus
 " vertical split separator, note the whitespace: '\ '
 set fillchars+=vert:\ 
 set backupdir=/tmp " Store swap files in fixed location, not current directory.
