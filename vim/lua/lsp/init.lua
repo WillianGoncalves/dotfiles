@@ -4,3 +4,4 @@ if not status_ok then
 end
 
 require('mason').setup()
+require('lsp.null-ls')
