@@ -11,6 +11,7 @@ require'nvim-treesitter.configs'.setup {
     "jsonc",
     "json5",
     "latex",
+    "lua",
     "prisma",
     "prisma",
     "regex",
