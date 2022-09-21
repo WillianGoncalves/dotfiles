@@ -1,0 +1,12 @@
+require('settings')
+require('autocommands')
+require('usercommands')
+require('plugins')
+require('lsp')
+
+require('plugins-config/cmp')
+require('plugins-config/closetag')
+require('plugins-config/easy-align')
+require('plugins-config/gitgutter')
+require('plugins-config/indent-line')
+require('plugins-config/nvim-tree')
