@@ -1,3 +1,3 @@
-vim.api.nvim_set_keymap('n', '<Leader>uh', '[[<Plug>(GitGutterUndoHunk)]]', {})
-vim.api.nvim_set_keymap('n', ']h', '[[<Plug>(GitGutterNextHunk)]]', {})
-vim.api.nvim_set_keymap('n', '[h', '[[<Plug>(GitGutterPrevHunk)]]', {})
+vim.keymap.set('n', '<Leader>uh', '<Plug>(GitGutterUndoHunk)')
+vim.keymap.set('n', ']h', '<Plug>(GitGutterNextHunk)')
+vim.keymap.set('n', '[h', '<Plug>(GitGutterPrevHunk)')
