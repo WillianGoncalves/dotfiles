@@ -6,6 +6,7 @@ require('plugins-config/gitgutter')
 require('plugins-config/indent-line')
 require('plugins-config/nvim-tree')
 require('plugins-config/telescope')
+require('plugins-config/treesitter')
 
 -- vim configuration files
 vim.cmd('source' .. vim.fn.stdpath('config') .. '/lua/plugins-config/lightline.vim')

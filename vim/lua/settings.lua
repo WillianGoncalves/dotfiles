@@ -20,4 +20,4 @@ vim.o.clipboard = 'unnamedplus'
 vim.o.updatetime = 100
 vim.o.termguicolors = true
 
---vim.api.nvim_command('colorscheme deepspace2')
+vim.api.nvim_command('colorscheme deepspace2')
