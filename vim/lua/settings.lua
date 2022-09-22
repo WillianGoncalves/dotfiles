@@ -6,7 +6,6 @@ vim.o.showtabline = 2
 vim.o.guifont = 'FiraMono'
 vim.o.scrolloff = 5
 vim.o.cursorline = true
-vim.o.backup = true
 vim.o.undofile = true
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
