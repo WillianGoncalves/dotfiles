@@ -1,1 +1,1 @@
---vim.go.closetag_filenames = '*.html.erb,*.html,*.xhtml,*.phtml,*.js'
+vim.g.closetag_filenames = '*.html.erb,*.html,*.xhtml,*.phtml,*.js'
