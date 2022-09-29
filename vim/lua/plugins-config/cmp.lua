@@ -15,10 +15,11 @@ local check_backspace = function()
   return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
 
-local windowConfig = cmp.config.window.bordered()
--- default winhighlight is: 'Normal:Normal,FloatBorder:Normal,CursorLine:Visual,Search:None',
--- see: https://github.com/hrsh7th/nvim-cmp/blob/9897465a7663997b7b42372164ffc3635321a2fe/lua/cmp/config/window.lua
-windowConfig.winhighlight = 'FloatBorder:FloatBorder' -- Normal will use NormalFloat
+local windowConfig = cmp.config.window.bordered({
+  -- default winhighlight is: 'Normal:Normal,FloatBorder:Normal,CursorLine:Visual,Search:None'
+  -- see: https://github.com/hrsh7th/nvim-cmp/blob/9897465a7663997b7b42372164ffc3635321a2fe/lua/cmp/config/window.lua
+  winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder'
+})
 
 cmp.setup {
   snippet = {

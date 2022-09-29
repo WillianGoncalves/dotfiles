@@ -14,8 +14,3 @@ vim.api.nvim_create_autocmd({'FileType'}, {
   pattern = 'gitcommit',
   command = 'setlocal spell textwidth=72'
 })
-
-vim.api.nvim_create_autocmd({'CursorHold'}, {
-  pattern = '*',
-  command = 'lua vim.diagnostic.open_float()'
-})
