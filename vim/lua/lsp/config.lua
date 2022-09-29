@@ -13,6 +13,12 @@ local signature_setup = {
   }
 }
 
+function show_docs()
+  if not vim.lsp.buf.signature_help() then
+    vim.lsp.buf.hover()
+  end
+end
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -22,14 +28,13 @@ local on_attach = function(client, bufnr)
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', 'K', show_docs, bufopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', ']e', vim.diagnostic.goto_next, bufopts)
   vim.keymap.set('n', '[e', vim.diagnostic.goto_prev, bufopts)
-  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
   vim.keymap.set('n', 'gl', vim.diagnostic.open_float, bufopts)
   require "lsp_signature".on_attach(signature_setup, bufnr)
 end
