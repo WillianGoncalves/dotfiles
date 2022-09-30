@@ -110,6 +110,8 @@ return packer.startup(function(use)
   use { 'itchyny/lightline.vim' }
   use { 'josa42/nvim-lightline-lsp' }
 
+  use {  'Shatur/neovim-session-manager' }
+
 	-- Git
 	--use({ "lewis6991/gitsigns.nvim", commit = "c18e016864c92ecf9775abea1baaa161c28082c3" })
 
