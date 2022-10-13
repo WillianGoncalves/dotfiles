@@ -18,6 +18,6 @@ vim.o.conceallevel = 0
 vim.o.clipboard = 'unnamedplus'
 vim.o.updatetime = 100
 vim.o.termguicolors = true
-vim.o.spell = true -- enable spell on comments
+vim.o.wrap = false
 
 vim.api.nvim_command('colorscheme deepspace2')
