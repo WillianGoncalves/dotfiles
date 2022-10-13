@@ -52,7 +52,6 @@ return packer.startup(function(use)
   use { 'editorconfig/editorconfig-vim' }
   use { 'tpope/vim-endwise' }
   use { 'tpope/vim-fugitive' }
-  use { 'airblade/vim-gitgutter' }
   use { 'ludovicchabant/vim-gutentags' }
   use { 'Yggdroot/indentLine' }
   use { 'suan/vim-instant-markdown', { run = 'sudo npm install -g instant-markdown-d' } }
@@ -106,14 +105,16 @@ return packer.startup(function(use)
   use { 'nvim-telescope/telescope.nvim' }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
-  -- lightline
-  use { 'itchyny/lightline.vim' }
-  use { 'josa42/nvim-lightline-lsp' }
+  -- lualine
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
 
   use {  'Shatur/neovim-session-manager' }
 
 	-- Git
-	--use({ "lewis6991/gitsigns.nvim", commit = "c18e016864c92ecf9775abea1baaa161c28082c3" })
+  use { 'lewis6991/gitsigns.nvim' }
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
