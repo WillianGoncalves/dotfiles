@@ -17,6 +17,8 @@ telescope.setup {
         ["<esc>"] = actions.close,
         ["<C-y>"] = actions.preview_scrolling_up,
         ["<C-e>"] = actions.preview_scrolling_down,
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
       },
     },
   },
