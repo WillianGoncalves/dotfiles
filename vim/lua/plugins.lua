@@ -67,7 +67,7 @@ return packer.startup(function(use)
   use { 'WillianGoncalves/nvcode-color-schemes.vim' }
   use { 'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' } }
   use { 'jremmen/vim-ripgrep' }
-  -- vimtext
+  use { 'lervag/vimtex' }
   use { 'vimwiki/vimwiki' }
 	--use({ "numToStr/Comment.nvim", commit = "2c26a00f32b190390b664e56e32fd5347613b9e2" })
 	--use({ "JoosepAlviste/nvim-ts-context-commentstring", commit = "88343753dbe81c227a1c1fd2c8d764afb8d36269" })
