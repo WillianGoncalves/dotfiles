@@ -19,7 +19,7 @@ nvim_tree.setup {
   -- open the tree when running this setup function
   open_on_setup       = false,
   -- will not open on setup if the filetype is in this list
-  ignore_ft_on_setup  = { 'startify' },
+  ignore_ft_on_setup  = {},
   -- opens the tree when changing/opening a new tab if the tree wasn't previously opened
   open_on_tab         = false,
   -- hijack the cursor in the tree to put it at the start of the filename
@@ -72,9 +72,10 @@ nvim_tree.setup {
   }
 }
 
-vim.api.nvim_set_keymap('n', '<C-\\>', ':NvimTreeToggle<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>r', ':NvimTreeRefresh<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>n', ':NvimTreeFindFile<CR>', { noremap = true })
+opts = { noremap = true, silent = true }
+vim.api.nvim_set_keymap('n', '<C-\\>', ':NvimTreeToggle<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>r', ':NvimTreeRefresh<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>n', ':NvimTreeFindFile<CR>', opts)
 
 vim.cmd([[
   autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
