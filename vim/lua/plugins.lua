@@ -54,7 +54,7 @@ return packer.startup(function(use)
   use { 'tpope/vim-fugitive' }
   use { 'ludovicchabant/vim-gutentags' }
   use { 'Yggdroot/indentLine' }
-  use { 'suan/vim-instant-markdown', { run = 'sudo npm install -g instant-markdown-d' } }
+  use { 'suan/vim-instant-markdown', run = 'sudo npm install -g instant-markdown-d' }
 
   use { 'scrooloose/nerdcommenter' }
   use { 'kyazdani42/nvim-web-devicons' }
@@ -65,10 +65,11 @@ return packer.startup(function(use)
   -- startify
   use { 'tpope/vim-surround' }
   use { 'WillianGoncalves/nvcode-color-schemes.vim' }
-  use { 'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' } }
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use { 'jremmen/vim-ripgrep' }
   use { 'lervag/vimtex' }
   use { 'vimwiki/vimwiki' }
+  use { 'ggandor/leap.nvim' }
 	--use({ "numToStr/Comment.nvim", commit = "2c26a00f32b190390b664e56e32fd5347613b9e2" })
 	--use({ "JoosepAlviste/nvim-ts-context-commentstring", commit = "88343753dbe81c227a1c1fd2c8d764afb8d36269" })
 	--use({ "akinsho/bufferline.nvim", commit = "c78b3ecf9539a719828bca82fc7ddb9b3ba0c353" })
