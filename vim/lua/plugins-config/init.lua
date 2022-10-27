@@ -11,3 +11,6 @@ require('plugins-config/lualine')
 require('plugins-config/gitsigns')
 require('plugins-config/colorizer')
 require('plugins-config/leap')
+
+-- vim configuration files
+vim.cmd('source' .. vim.fn.stdpath('config') .. '/lua/plugins-config/vimwiki.vim')
