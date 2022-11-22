@@ -111,6 +111,10 @@ return packer.startup(function(use)
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
+  use {
+    'kdheepak/tabline.nvim',
+    requires = {'nvim-lualine/lualine.nvim', 'kyazdani42/nvim-web-devicons'}
+  }
 
   use {  'Shatur/neovim-session-manager' }
 

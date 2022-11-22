@@ -3,6 +3,11 @@ if not status_ok then
 	return
 end
 
+local tabline_status_ok, tabline = pcall(require, "tabline")
+if not tabline_status_ok then
+	return
+end
+
 local function diff_source()
   local gitsigns = vim.b.gitsigns_status_dict
   if gitsigns then
@@ -82,29 +87,10 @@ lualine.setup {
     lualine_z = {}
   },
   tabline = {
-    lualine_a = {
-      {
-        'tabs',
-        max_length = vim.o.columns, -- Maximum width of tabs component.
-        -- Note:
-        -- It can also be a function that returns
-        -- the value of `max_length` dynamically.
-        mode = 2, -- 0: Shows tab_nr
-        -- 1: Shows tab_name
-        -- 2: Shows tab_nr + tab_name
-
-        tabs_color = {
-          -- Same values as the general color option can be used here.
-          --active = 'lualine_a_normal',     -- Color for active tab.
-          active = 'TablineSel',     -- Color for active tab.
-          --inactive = 'lualine_a_inactive', -- Color for inactive tab.
-          inactive = 'Tabline', -- Color for inactive tab.
-        },
-      },
-    },
+    lualine_a = {},
     lualine_b = {},
-    lualine_c = {},
-    lualine_x = {},
+    lualine_c = { tabline.tabline_buffers },
+    lualine_x = { tabline.tabline_tabs },
     lualine_y = {},
     lualine_z = {}
   },
@@ -117,8 +103,7 @@ lualine.setup {
       }
     },
     lualine_b = {},
-    lualine_c = {
-    },
+    lualine_c = {},
     lualine_x = {},
     lualine_y = {},
     lualine_z = {}
@@ -132,4 +117,22 @@ lualine.setup {
     lualine_z = {}
   },
   extensions = {}
+}
+
+tabline.setup {
+  enable = false,
+  options = {
+    -- If lualine is installed tabline will use separators configured in lualine by default.
+    -- These options can be used to override those settings.
+    section_separators = {'', ''},
+    component_separators = {'', ''},
+    max_bufferline_percent = 80, -- set to nil by default, and it uses vim.o.columns * 2/3
+    show_tabs_always = true, -- this shows tabs only when there are more than one tab or if the first tab is named
+    show_devicons = true, -- this shows devicons in buffer section
+    show_bufnr = false, -- this appends [bufnr] to buffer section,
+    show_filename_only = true, -- shows base filename only instead of relative path in filename
+    --modified_icon = "+ ", -- change the default modified icon
+    modified_italic = false, -- set to true by default; this determines whether the filename turns italic if modified
+    show_tabs_only = true, -- this shows only tabs instead of tabs + buffers
+  }
 }
