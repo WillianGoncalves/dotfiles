@@ -36,3 +36,5 @@ autoload $fpath[1]/*(.:t)
 
 export VISUAL='$HOME/Applications/nvim_v0_8.appimage'
 export EDITOR="$VISUAL"
+
+eval "$(rbenv init -)"
