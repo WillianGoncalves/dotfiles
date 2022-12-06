@@ -86,14 +86,14 @@ lualine.setup {
     lualine_y = {},
     lualine_z = {}
   },
-  tabline = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = { tabline.tabline_buffers },
-    lualine_x = { tabline.tabline_tabs },
-    lualine_y = {},
-    lualine_z = {}
-  },
+  --tabline = {
+    --lualine_a = {},
+    --lualine_b = {},
+    --lualine_c = {},
+    --lualine_x = {},
+    --lualine_y = {},
+    --lualine_z = {}
+  --},
   winbar = {
     lualine_a = {
       {
