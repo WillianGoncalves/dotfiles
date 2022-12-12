@@ -56,7 +56,7 @@ return packer.startup(function(use)
   use { 'Yggdroot/indentLine' }
   use { 'suan/vim-instant-markdown', run = 'sudo npm install -g instant-markdown-d' }
 
-  use { 'scrooloose/nerdcommenter' }
+  use { 'numToStr/Comment.nvim' }
   use { 'kyazdani42/nvim-web-devicons' }
   use { 'kyazdani42/nvim-tree.lua' }
   use { 'tpope/vim-repeat' }
