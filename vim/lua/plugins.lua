@@ -62,7 +62,6 @@ return packer.startup(function(use)
   use { 'tpope/vim-repeat' }
   use { 'kshenoy/vim-signature' }
   use { 'honza/vim-snippets' }
-  -- startify
   use { 'tpope/vim-surround' }
   use { 'WillianGoncalves/nvcode-color-schemes.vim' }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -112,7 +111,9 @@ return packer.startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
   use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
+  use 'arkav/lualine-lsp-progress'
 
+  -- Session
   use {  'Shatur/neovim-session-manager' }
 
 	-- Git
