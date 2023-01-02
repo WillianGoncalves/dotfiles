@@ -52,7 +52,6 @@ return packer.startup(function(use)
   use { 'editorconfig/editorconfig-vim' }
   use { 'tpope/vim-endwise' }
   use { 'tpope/vim-fugitive' }
-  use { 'ludovicchabant/vim-gutentags' }
   use { 'Yggdroot/indentLine' }
   use { 'suan/vim-instant-markdown', run = 'sudo npm install -g instant-markdown-d' }
 
