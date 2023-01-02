@@ -9,6 +9,10 @@ M.setup = function()
       style = 'minimal',
       border = 'rounded',
       source = 'always',
+      header = ' Diagnostics:',
+      prefix = function (diagnostic, i)
+        return string.format(' %d. ', i)
+      end
     }
   }
 
