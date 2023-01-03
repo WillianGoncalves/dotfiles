@@ -1,5 +1,4 @@
 -- lua configuration files
-require('plugins-config/cmp')
 require('plugins-config/closetag')
 require('plugins-config/comment')
 require('plugins-config/easy-align')
@@ -13,6 +12,7 @@ require('plugins-config/bufferline')
 require('plugins-config/gitsigns')
 require('plugins-config/colorizer')
 require('plugins-config/leap')
+require('plugins-config/lsp-zero')
 
 -- vim configuration files
 vim.cmd('source' .. vim.fn.stdpath('config') .. '/lua/plugins-config/vimwiki.vim')
