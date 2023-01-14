@@ -2,34 +2,26 @@ local lsp = require('lsp-zero')
 lsp.preset('recommended')
 lsp.ensure_installed(require('lsp.servers').servers_list)
 
+-- Source: https://github.com/ray-x/lsp_signature.nvim#full-configuration-with-default-values
 local signature_setup = {
   bind = true, -- This is mandatory, otherwise border config won't get registered.
   hint_enable = false,
-  hi_parameter = 'Search',
+  hi_parameter = 'LspSignatureActiveParameter',
   handler_opts = {
     border = "rounded"
   }
 }
-
-function show_docs()
-  if not vim.lsp.buf.signature_help() then
-    vim.lsp.buf.hover()
-  end
-end
 
 local on_attach = function(client, bufnr)
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   -- Code extracted from https://github.com/neovim/nvim-lspconfig
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
-  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+
   vim.keymap.set('n', 'gdt', '<cmd>tab split | lua vim.lsp.buf.definition()<cr>', bufopts)
-  vim.keymap.set('n', 'K', show_docs, bufopts)
-  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, bufopts)
   vim.keymap.set('n', ']e', vim.diagnostic.goto_next, bufopts)
   vim.keymap.set('n', '[e', vim.diagnostic.goto_prev, bufopts)
   vim.keymap.set('n', 'gl', vim.diagnostic.open_float, bufopts)
@@ -113,7 +105,8 @@ local cmp_config = lsp.defaults.cmp_config({
   sources = {
     { name = "nvim_lsp", priority = 100 },
     { name = "luasnip", priority = 90 },
-    { name = "nvim_lua", priority = 90 },
+    { name = "nvim_lua", priority = 80 },
+    { name = 'buffer', priority = 20 },
     { name = "path", priority = 10 },
   },
   window = {
@@ -136,13 +129,13 @@ cmp.setup.cmdline({ '/', '?' }, {
 cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
-    { name = 'path' }
+    { name = 'path', priority = 10 }
   }, {
-    { name = 'cmdline' }
+    { name = 'cmdline', priority = 70 }
   })
 })
 
-local config = {
+local diagnostic_config = {
   float = {
     focusable = false,
     style = 'minimal',
@@ -155,4 +148,4 @@ local config = {
   }
 }
 
-vim.diagnostic.config(config)
+vim.diagnostic.config(diagnostic_config)
