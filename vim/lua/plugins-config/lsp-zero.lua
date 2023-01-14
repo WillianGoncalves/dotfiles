@@ -1,6 +1,14 @@
 local lsp = require('lsp-zero')
 lsp.preset('recommended')
-lsp.ensure_installed(require('lsp.servers').servers_list)
+
+local servers_list = {
+  'eslint',
+  'tsserver',
+  'sumneko_lua',
+  'solargraph',
+}
+
+lsp.ensure_installed(servers_list)
 
 -- Source: https://github.com/ray-x/lsp_signature.nvim#full-configuration-with-default-values
 local signature_setup = {
