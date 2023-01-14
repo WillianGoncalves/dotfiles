@@ -3,8 +3,16 @@ if not status_ok then
   return
 end
 
-vim.keymap.set('n', '<C-p>', ':Telescope find_files<CR>', { noremap = true })
-vim.keymap.set('n', '<C-f>', ':Telescope live_grep<CR>', { noremap = true })
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<C-p>', builtin.find_files, {})
+vim.keymap.set('n', '<C-f>', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>tr', builtin.lsp_references, { desc = '[T]elescope lsp [r]eferences' })
+vim.keymap.set('n', '<leader>th', builtin.help_tags, { desc = '[T]elescope [h]elp tags' })
+vim.keymap.set('n', '<leader>tgc', builtin.git_commits, { desc = '[T]elescope [g]it [c]ommits' })
+vim.keymap.set('n', '<leader>tbc', builtin.git_bcommits, { desc = '[T]elescope git [b]uffer [c]ommits' })
+vim.keymap.set('n', '<leader>tgb', builtin.git_branches, { desc = '[T]elescope [g]it [b]ranches' })
+vim.keymap.set('n', '<leader>tgs', builtin.git_status, { desc = '[T]elescope [g]it [s]tatus' })
+vim.keymap.set('n', '<leader>tk', builtin.keymaps, { desc = '[T]elescope [k]eymaps' })
 vim.api.nvim_create_user_command('Colors', 'Telescope colorscheme', {})
 
 local actions = require "telescope.actions"
