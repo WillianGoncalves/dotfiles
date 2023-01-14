@@ -62,7 +62,16 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<C-x>'] = cmp.mapping.abort(),
   -- Accept currently selected item. If none selected, `select` first item.
   -- Set `select` to `false` to only confirm explicitly selected items.
-  ["<CR>"] = cmp.mapping.confirm { select = false },
+  ['<CR>'] = cmp.mapping.confirm({ select = false }),
+  ['<C-c>'] = cmp.mapping({
+    c = function(fallback)
+      if cmp.visible() then
+        cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+      else
+        fallback()
+      end
+    end
+  }),
   ["<Tab>"] = cmp.mapping(function(fallback)
     if cmp.visible() then
       cmp.select_next_item()
