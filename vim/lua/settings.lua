@@ -1,3 +1,4 @@
+vim.g.mapleader = ' '
 vim.o.linespace = 7
 vim.o.number = true
 vim.o.relativenumber = true
