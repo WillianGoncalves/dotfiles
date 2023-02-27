@@ -5,6 +5,8 @@ local servers_list = {
   'eslint',
   'tsserver',
   'sumneko_lua',
+  -- To get solargraph to work, it is necessary to install the lsp with mason and the gem for the corresponding project's ruby version.
+  -- Then it is necessary to create a symlink like this: ln -s $HOME/.rbenv/shims/solargraph $HOME/.local/share/nvim/mason/bin/solargraph
   'solargraph',
 }
 
@@ -45,6 +47,13 @@ lsp.set_preferences({
     info = 'I'
   }
 })
+-- lsp.configure('solargraph', {
+--   settings = {
+--     commandPath = '/home/willian/.rbenv/shims/solargraph',
+--     diagnostics = true,
+--     completion = true
+--   }
+-- })
 lsp.setup()
 
 local check_backspace = function()
