@@ -24,3 +24,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.bo[args.buf].formatexpr = nil
   end,
 })
+
+-- add jbuilder syntax highlighting
+vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
+  pattern = '*.json.jbuilder',
+  command = 'set ft=ruby',
+})
