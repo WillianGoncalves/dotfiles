@@ -43,7 +43,7 @@ return packer.startup(function(use)
 	use { 'nvim-lua/plenary.nvim' } -- Useful lua functions used by lots of plugins
   use { 'tpope/vim-abolish' }
   use { 'jiangmiao/auto-pairs' }
-  use { 'alvan/vim-closetag' }
+  use { 'windwp/nvim-ts-autotag' }
   use { 'norcalli/nvim-colorizer.lua' }
   use { 'junegunn/vim-easy-align' }
   use { 'editorconfig/editorconfig-vim' }
