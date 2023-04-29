@@ -1,24 +1,14 @@
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = {
-    "bash",
-    "dockerfile",
-    "graphql",
-    "hcl",
-    "html",
-    "javascript",
-    "jsdoc",
-    "json",
-    "jsonc",
-    "json5",
-    "latex",
-    "lua",
-    "prisma",
-    "regex",
-    "ruby",
-    "scss",
-    "typescript",
-    "vim",
-  }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+require 'nvim-treesitter.configs'.setup {
+  ensure_installed = "all",
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "gnn", -- set to `false` to disable one of the mappings
+      node_incremental = "grn",
+      scope_incremental = "grc",
+      node_decremental = "grm",
+    },
+  },
   ignore_install = {}, -- List of parsers to ignore installing
   highlight = {
     enable = true, -- false will disable the whole extension
