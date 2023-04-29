@@ -64,6 +64,7 @@ return packer.startup(function(use)
   use { 'lervag/vimtex' }
   use { 'vimwiki/vimwiki' }
   use { 'ggandor/leap.nvim' }
+  use { 'ThePrimeagen/harpoon' }
 
 	-- cmp plugins
   use { 'hrsh7th/cmp-cmdline' }

@@ -13,6 +13,7 @@ require('plugins-config/gitsigns')
 require('plugins-config/colorizer')
 require('plugins-config/leap')
 require('plugins-config/lsp-zero')
+require('plugins-config/harpoon')
 
 -- vim configuration files
 vim.cmd('source' .. vim.fn.stdpath('config') .. '/lua/plugins-config/vimwiki.vim')
