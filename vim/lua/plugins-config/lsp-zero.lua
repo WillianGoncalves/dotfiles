@@ -71,15 +71,6 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   -- Accept currently selected item. If none selected, `select` first item.
   -- Set `select` to `false` to only confirm explicitly selected items.
   ['<CR>'] = cmp.mapping.confirm({ select = false }),
-  ['<C-c>'] = cmp.mapping({
-    c = function(fallback)
-      if cmp.visible() then
-        cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-      else
-        fallback()
-      end
-    end
-  }),
   ["<Tab>"] = cmp.mapping(function(fallback)
     if cmp.visible() then
       cmp.select_next_item()
@@ -131,6 +122,15 @@ local cmp_config = lsp.defaults.cmp_config({
   },
 })
 
+cmp.setup.filetype('ruby', {
+  sources = cmp.config.sources({
+    { name = "nvim_lsp", priority = 100 },
+    { name = "path", priority = 10 },
+  }, {
+    { name = 'buffer' },
+  })
+})
+
 -- https://github.com/VonHeikemen/lsp-zero.nvim/discussions/53
 cmp.setup(cmp_config)
 
@@ -143,6 +143,10 @@ cmp.setup.cmdline({ '/', '?' }, {
 })
 
 cmp.setup.cmdline(':', {
+  preselect = 'none',
+  completion = {
+    completeopt = 'menu,menuone,noinsert,noselect'
+  },
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
     { name = 'path', priority = 10 }
