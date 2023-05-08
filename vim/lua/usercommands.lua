@@ -11,3 +11,10 @@ vim.api.nvim_create_user_command(
   '%bd|e#',
   {}
 )
+
+-- close tabs to the right
+vim.api.nvim_create_user_command(
+  'Qr',
+  '.+1,$tabdo :tabc',
+  {}
+)
