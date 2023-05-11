@@ -60,6 +60,7 @@ return packer.startup(function(use)
   use { 'tpope/vim-surround' }
   use { 'WillianGoncalves/nvcode-color-schemes.vim' }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use { 'nvim-treesitter/playground' }
   use { 'jremmen/vim-ripgrep' }
   use { 'lervag/vimtex' }
   use { 'vimwiki/vimwiki' }
