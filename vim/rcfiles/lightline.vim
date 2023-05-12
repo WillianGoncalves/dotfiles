@@ -1,1 +1,0 @@
-call lightline#coc#register()

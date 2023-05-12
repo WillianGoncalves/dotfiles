@@ -1,7 +1,0 @@
-Plug 'airblade/vim-gitgutter'
-
-nmap <Leader>uh <Plug>(GitGutterUndoHunk)
-nmap ]h <Plug>(GitGutterNextHunk)
-nmap [h <Plug>(GitGutterPrevHunk)
-
-" vim:ft=vim

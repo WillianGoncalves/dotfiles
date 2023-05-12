@@ -1,5 +1,0 @@
-" Code comment plugin
-
-Plug 'scrooloose/nerdcommenter'
-
-" vim:ft=vim

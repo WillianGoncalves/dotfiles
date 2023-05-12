@@ -1,5 +1,0 @@
-" Plugin to toggle, display and navigate marks
-
-Plug 'kshenoy/vim-signature'
-
-" vim:ft=vim

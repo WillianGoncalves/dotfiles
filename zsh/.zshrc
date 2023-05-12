@@ -24,7 +24,6 @@ if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-alias robomongo='/usr/local/bin/robomongo/robo3t-1.3.1-linux-x86_64-7419c406/bin/robo3t'
 alias nvim='$HOME/Applications/nvim_v0_9.appimage'
 alias gco='git checkout $(git branch | fzf)'
 alias cdpl='cd $HOME/Projects/o2/etherpad-docker/etherpad-src/etherpad-lite/node_modules && cd $(ls | fzf)'
@@ -34,7 +33,11 @@ alias bat='$HOME/.local/bin/bat'
 fpath=($HOME/Projects/dotfiles/zsh/functions $fpath)
 autoload $fpath[1]/*(.:t)
 
-export VISUAL='$HOME/Applications/nvim_v0_8.appimage'
+export VISUAL='$HOME/Applications/nvim_v0_9.appimage'
 export EDITOR="$VISUAL"
 
-eval "$(rbenv init -)"
+export NODEJS_HOME=/opt/node-v18.16.0-linux-x64/bin
+export FD_HOME=$HOME/.local/bin
+export PATH=$FD_HOME:$NODEJS_HOME:$PATH
+
+eval "$(~/.rbenv/bin/rbenv init - zsh)"
