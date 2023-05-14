@@ -149,6 +149,7 @@ cmp.setup.cmdline(':', {
 })
 
 local diagnostic_config = {
+  virtual_text = false,
   float = {
     focusable = false,
     style = 'minimal',
