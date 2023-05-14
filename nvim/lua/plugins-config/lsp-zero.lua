@@ -46,13 +46,6 @@ lsp.set_preferences({
     info = 'I'
   }
 })
--- lsp.configure('solargraph', {
---   settings = {
---     commandPath = '/home/willian/.rbenv/shims/solargraph',
---     diagnostics = true,
---     completion = true
---   }
--- })
 lsp.setup()
 
 local check_backspace = function()
