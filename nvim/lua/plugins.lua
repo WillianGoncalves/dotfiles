@@ -59,6 +59,7 @@ return packer.startup(function(use)
   use { 'honza/vim-snippets' }
   use { 'tpope/vim-surround' }
   use { 'WillianGoncalves/nvcode-color-schemes.vim' }
+  use { 'folke/tokyonight.nvim' }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use { 'nvim-treesitter/playground' }
   use { 'jremmen/vim-ripgrep' }

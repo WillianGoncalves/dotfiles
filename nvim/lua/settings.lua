@@ -22,4 +22,4 @@ vim.o.termguicolors = true
 vim.o.wrap = false
 vim.o.signcolumn = 'yes'
 
-vim.api.nvim_command('colorscheme deepspace2')
+vim.cmd[[colorscheme tokyonight-night]]
