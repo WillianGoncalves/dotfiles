@@ -94,12 +94,6 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   }),
 })
 
-local windowConfig = cmp.config.window.bordered({
-  -- default winhighlight is: 'Normal:Normal,FloatBorder:Normal,CursorLine:Visual,Search:None'
-  -- see: https://github.com/hrsh7th/nvim-cmp/blob/9897465a7663997b7b42372164ffc3635321a2fe/lua/cmp/config/window.lua
-  winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder'
-})
-
 local cmp_config = lsp.defaults.cmp_config({
   mapping = cmp_mappings,
   sources = {
@@ -108,10 +102,6 @@ local cmp_config = lsp.defaults.cmp_config({
     { name = "nvim_lua", priority = 80 },
     { name = 'buffer', priority = 20 },
     { name = "path", priority = 10 },
-  },
-  window = {
-    completion = windowConfig,
-    documentation = windowConfig,
   },
 })
 
