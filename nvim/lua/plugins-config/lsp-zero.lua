@@ -96,6 +96,10 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 
 local cmp_config = lsp.defaults.cmp_config({
   mapping = cmp_mappings,
+  preselect = cmp.PreselectMode.Item,
+  completion = {
+    completeopt=""
+  },
   sources = {
     { name = "nvim_lsp", priority = 100 },
     { name = "luasnip", priority = 90 },
