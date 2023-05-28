@@ -264,6 +264,11 @@ _G.packer_plugins = {
     path = "/home/willian/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
   },
+  treesj = {
+    loaded = true,
+    path = "/home/willian/.local/share/nvim/site/pack/packer/start/treesj",
+    url = "https://github.com/Wansmer/treesj"
+  },
   ["vim-abolish"] = {
     loaded = true,
     path = "/home/willian/.local/share/nvim/site/pack/packer/start/vim-abolish",

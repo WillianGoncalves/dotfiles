@@ -15,6 +15,7 @@ require('plugins-config/leap')
 require('plugins-config/lsp-zero')
 require('plugins-config/harpoon')
 require('plugins-config/ts-autotag')
+require('plugins-config/treejs')
 
 -- vim configuration files
 vim.cmd('source' .. vim.fn.stdpath('config') .. '/lua/plugins-config/vimwiki.vim')
