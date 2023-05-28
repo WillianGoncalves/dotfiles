@@ -30,3 +30,8 @@ vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
   pattern = '*.json.jbuilder',
   command = 'set ft=ruby',
 })
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'qf',
+  command = [[nnoremap <buffer> <C-T> <C-W><Enter><C-W>T]],
+})
