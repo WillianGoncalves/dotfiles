@@ -31,6 +31,7 @@ vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
   command = 'set ft=ruby',
 })
 
+-- CONTROL+T opens the quickfix file in a new tab
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'qf',
   command = [[nnoremap <buffer> <C-T> <C-W><Enter><C-W>T]],
