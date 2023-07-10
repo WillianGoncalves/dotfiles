@@ -56,7 +56,6 @@ return packer.startup(function(use)
   use { 'kyazdani42/nvim-tree.lua' }
   use { 'tpope/vim-repeat' }
   use { 'kshenoy/vim-signature' }
-  use { 'honza/vim-snippets' }
   use { 'tpope/vim-surround' }
   use { 'WillianGoncalves/nvcode-color-schemes.vim' }
   use { 'folke/tokyonight.nvim' }
