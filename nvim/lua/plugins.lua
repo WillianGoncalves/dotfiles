@@ -45,7 +45,6 @@ return packer.startup(function(use)
   use { 'jiangmiao/auto-pairs' }
   use { 'windwp/nvim-ts-autotag' }
   use { 'norcalli/nvim-colorizer.lua' }
-  use { 'junegunn/vim-easy-align' }
   use { 'editorconfig/editorconfig-vim' }
   use { 'tpope/vim-endwise' }
   use { 'tpope/vim-fugitive' }

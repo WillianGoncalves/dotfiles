@@ -284,11 +284,6 @@ _G.packer_plugins = {
     path = "/home/willian/.local/share/nvim/site/pack/packer/start/vim-abolish",
     url = "https://github.com/tpope/vim-abolish"
   },
-  ["vim-easy-align"] = {
-    loaded = true,
-    path = "/home/willian/.local/share/nvim/site/pack/packer/start/vim-easy-align",
-    url = "https://github.com/junegunn/vim-easy-align"
-  },
   ["vim-endwise"] = {
     loaded = true,
     path = "/home/willian/.local/share/nvim/site/pack/packer/start/vim-endwise",

@@ -1,7 +1,6 @@
 -- lua configuration files
 require('plugins-config/closetag')
 require('plugins-config/comment')
-require('plugins-config/easy-align')
 require('plugins-config/indent-line')
 require('plugins-config/nvim-tree')
 require('plugins-config/telescope')
