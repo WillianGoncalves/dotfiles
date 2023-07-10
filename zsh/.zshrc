@@ -19,12 +19,13 @@ if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+NVIM_APP_IMAGE="nvim_v0_9_1.appimage"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-alias nvim='$HOME/Applications/nvim_v0_9.appimage'
+alias nvim='$HOME/Applications/$NVIM_APP_IMAGE'
 alias gco='git checkout $(git branch | fzf)'
 alias cdpl='cd $HOME/Projects/o2/etherpad-docker/etherpad-src/etherpad-lite/node_modules && cd $(ls | fzf)'
 alias bat='$HOME/.local/bin/bat'
@@ -33,7 +34,7 @@ alias bat='$HOME/.local/bin/bat'
 fpath=($HOME/Projects/dotfiles/zsh/functions $fpath)
 autoload $fpath[1]/*(.:t)
 
-export VISUAL='$HOME/Applications/nvim_v0_9.appimage'
+export VISUAL="$HOME/Applications/$NVIM_APP_IMAGE"
 export EDITOR="$VISUAL"
 
 export NODEJS_HOME=/opt/node-v18.16.0-linux-x64/bin
