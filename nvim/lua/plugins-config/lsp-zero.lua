@@ -118,6 +118,8 @@ cmp.setup.filetype('ruby', {
   })
 })
 
+require('luasnip.loaders.from_vscode').lazy_load()
+
 -- https://github.com/VonHeikemen/lsp-zero.nvim/discussions/53
 cmp.setup(cmp_config)
 
