@@ -10,7 +10,7 @@ vim.keymap.set('n', '<leader>tr', builtin.lsp_references, { desc = '[T]elescope 
 vim.keymap.set('n', '<leader>th', builtin.help_tags, { desc = '[T]elescope [h]elp tags' })
 vim.keymap.set('n', '<leader>tgc', builtin.git_commits, { desc = '[T]elescope [g]it [c]ommits' })
 vim.keymap.set('n', '<leader>tbc', builtin.git_bcommits, { desc = '[T]elescope git [b]uffer [c]ommits' })
-vim.keymap.set('n', '<leader>tgb', builtin.git_branches, { desc = '[T]elescope [g]it [b]ranches' })
+vim.keymap.set('n', '<leader>tgb', function() builtin.git_branches({ show_remote_tracking_branches = false }) end, { desc = '[T]elescope [g]it [b]ranches' })
 vim.keymap.set('n', '<leader>tgs', builtin.git_status, { desc = '[T]elescope [g]it [s]tatus' })
 vim.keymap.set('n', '<leader>tk', builtin.keymaps, { desc = '[T]elescope [k]eymaps' })
 vim.api.nvim_create_user_command('Colors', 'Telescope colorscheme', {})
