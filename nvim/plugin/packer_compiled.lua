@@ -269,6 +269,11 @@ _G.packer_plugins = {
     path = "/home/willian/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["text-case.nvim"] = {
+    loaded = true,
+    path = "/home/willian/.local/share/nvim/site/pack/packer/start/text-case.nvim",
+    url = "https://github.com/johmsalas/text-case.nvim"
+  },
   ["tokyonight.nvim"] = {
     loaded = true,
     path = "/home/willian/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
