@@ -1,4 +1,5 @@
 local lsp = require('lsp-zero')
+local cmp_action = require('lsp-zero.cmp').action()
 lsp.preset('recommended')
 
 local servers_list = {
@@ -7,6 +8,15 @@ local servers_list = {
   -- To get solargraph to work, it is necessary to install the lsp with mason and the gem for the corresponding project's ruby version.
   -- Then it is necessary to create a symlink like this: ln -s $HOME/.rbenv/shims/solargraph $HOME/.local/share/nvim/mason/bin/solargraph
   'solargraph',
+  'cssls',
+  'cssmodules_ls',
+  'bashls',
+  'docker_compose_language_service',
+  'jsonls',
+  'sqlls',
+
+  'rubocop',
+  'diagnosticls',
 }
 
 lsp.ensure_installed(servers_list)
@@ -38,20 +48,33 @@ local on_attach = function(client, bufnr)
 end
 
 lsp.on_attach(on_attach)
-lsp.set_preferences({
-  sign_icons = {
-    error = 'E',
-    warn = 'W',
-    hint = 'H',
-    info = 'I'
-  }
-})
+
+require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+
 lsp.setup()
 
-local check_backspace = function()
-  local col = vim.fn.col "." - 1
-  return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
-end
+lsp.set_sign_icons({
+  error = 'E',
+  warn = 'W',
+  hint = 'H',
+  info = 'I'
+})
+
+vim.diagnostic.config({
+  virtual_text = false,
+  severity_sort = true,
+  float = {
+    -- focusable = false,
+    style = 'minimal',
+    border = 'rounded',
+    source = 'always',
+    header = ' Diagnostics:',
+    prefix = function(diagnostic, i)
+      return string.format(' %d. ', i)
+    end
+  }
+})
+
 local cmp = require('cmp')
 local luasnip = require('luasnip')
 local cmp_mappings = lsp.defaults.cmp_mappings({
@@ -64,34 +87,8 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   -- Accept currently selected item. If none selected, `select` first item.
   -- Set `select` to `false` to only confirm explicitly selected items.
   ['<CR>'] = cmp.mapping.confirm({ select = false }),
-  ["<Tab>"] = cmp.mapping(function(fallback)
-    if cmp.visible() then
-      cmp.select_next_item()
-    elseif luasnip.expandable() then
-      luasnip.expand()
-    elseif luasnip.expand_or_jumpable() then
-      luasnip.expand_or_jump()
-    elseif check_backspace() then
-      fallback()
-    else
-      fallback()
-    end
-  end, {
-    "i",
-    "s",
-  }),
-  ["<S-Tab>"] = cmp.mapping(function(fallback)
-    if cmp.visible() then
-      cmp.select_prev_item()
-    elseif luasnip.jumpable(-1) then
-      luasnip.jump(-1)
-    else
-      fallback()
-    end
-  end, {
-    "i",
-    "s",
-  }),
+  ['<Tab>'] = cmp_action.tab_complete(),
+  ['<S-Tab>'] = cmp.mapping.select_prev_item(),
 })
 
 local cmp_config = lsp.defaults.cmp_config({
@@ -99,6 +96,9 @@ local cmp_config = lsp.defaults.cmp_config({
   preselect = cmp.PreselectMode.Item,
   completion = {
     completeopt=""
+  },
+  window = {
+    documention = cmp.config.window.bordered(),
   },
   sources = {
     { name = "nvim_lsp", priority = 100 },
@@ -109,6 +109,11 @@ local cmp_config = lsp.defaults.cmp_config({
   },
 })
 
+require('luasnip.loaders.from_vscode').lazy_load()
+
+-- https://github.com/VonHeikemen/lsp-zero.nvim/discussions/53
+cmp.setup(cmp_config)
+
 cmp.setup.filetype('ruby', {
   sources = cmp.config.sources({
     { name = "nvim_lsp", priority = 100 },
@@ -117,11 +122,6 @@ cmp.setup.filetype('ruby', {
     { name = 'buffer' },
   })
 })
-
-require('luasnip.loaders.from_vscode').lazy_load()
-
--- https://github.com/VonHeikemen/lsp-zero.nvim/discussions/53
-cmp.setup(cmp_config)
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ '/', '?' }, {
@@ -147,19 +147,3 @@ cmp.setup.cmdline(':', {
     { name = 'cmdline', priority = 70 }
   })
 })
-
-local diagnostic_config = {
-  virtual_text = false,
-  float = {
-    focusable = false,
-    style = 'minimal',
-    border = 'rounded',
-    source = 'always',
-    header = ' Diagnostics:',
-    prefix = function(diagnostic, i)
-      return string.format(' %d. ', i)
-    end
-  }
-}
-
-vim.diagnostic.config(diagnostic_config)

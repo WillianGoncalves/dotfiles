@@ -77,6 +77,7 @@ return packer.startup(function(use)
   use { 'ray-x/lsp_signature.nvim' }
   use {
     'VonHeikemen/lsp-zero.nvim',
+    branch = 'v2.x',
     requires = {
       -- LSP Support
       {'neovim/nvim-lspconfig'},
