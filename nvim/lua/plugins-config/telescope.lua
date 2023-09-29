@@ -13,6 +13,7 @@ vim.keymap.set('n', '<leader>tbc', builtin.git_bcommits, { desc = '[T]elescope g
 vim.keymap.set('n', '<leader>tgb', function() builtin.git_branches({ show_remote_tracking_branches = false }) end, { desc = '[T]elescope [g]it [b]ranches' })
 vim.keymap.set('n', '<leader>tgs', builtin.git_status, { desc = '[T]elescope [g]it [s]tatus' })
 vim.keymap.set('n', '<leader>tk', builtin.keymaps, { desc = '[T]elescope [k]eymaps' })
+vim.keymap.set('n', '<leader>tof', function() builtin.oldfiles({ only_cwd = true }) end, { desc = '[T]elescope [o]ld [f]iles' })
 vim.api.nvim_create_user_command('Colors', 'Telescope colorscheme', {})
 
 local actions = require "telescope.actions"
