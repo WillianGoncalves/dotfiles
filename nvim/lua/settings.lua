@@ -20,6 +20,6 @@ vim.o.clipboard = 'unnamedplus'
 vim.o.updatetime = 50
 vim.o.termguicolors = true
 vim.o.wrap = false
-vim.o.signcolumn = 'yes'
+vim.o.signcolumn = 'yes:2'
 
 vim.cmd[[colorscheme tokyonight-night]]
