@@ -1,6 +1,5 @@
-local lsp = require('lsp-zero')
-local cmp_action = require('lsp-zero.cmp').action()
-lsp.preset('recommended')
+local lsp_zero = require('lsp-zero')
+lsp_zero.preset('recommended')
 
 local servers_list = {
   'eslint',
@@ -19,7 +18,17 @@ local servers_list = {
   'diagnosticls',
 }
 
-lsp.ensure_installed(servers_list)
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  ensure_installed = servers_list,
+  handlers = {
+    lsp_zero.default_setup,
+    lua_ls = function()
+      local lua_opts = lsp_zero.nvim_lua_ls()
+      require('lspconfig').lua_ls.setup(lua_opts)
+    end,
+  }
+})
 
 -- Source: https://github.com/ray-x/lsp_signature.nvim#full-configuration-with-default-values
 local signature_setup = {
@@ -47,13 +56,11 @@ local on_attach = function(client, bufnr)
   require "lsp_signature".on_attach(signature_setup, bufnr)
 end
 
-lsp.on_attach(on_attach)
+lsp_zero.on_attach(on_attach)
 
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+lsp_zero.setup()
 
-lsp.setup()
-
-lsp.set_sign_icons({
+lsp_zero.set_sign_icons({
   error = 'E',
   warn = 'W',
   hint = 'H',
@@ -76,8 +83,11 @@ vim.diagnostic.config({
 })
 
 local cmp = require('cmp')
+-- local cmp_action = require('lsp-zero.cmp').action()
+local cmp_action = lsp_zero.cmp_action()
+local cmp_format = lsp_zero.cmp_format()
 local luasnip = require('luasnip')
-local cmp_mappings = lsp.defaults.cmp_mappings({
+local cmp_mappings = lsp_zero.defaults.cmp_mappings({
   ["<C-k>"] = cmp.mapping.select_prev_item(),
   ["<C-j>"] = cmp.mapping.select_next_item(),
   ['<C-y>'] = cmp.mapping.scroll_docs(-4),
@@ -91,7 +101,8 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<S-Tab>'] = cmp.mapping.select_prev_item(),
 })
 
-local cmp_config = lsp.defaults.cmp_config({
+local cmp_config = lsp_zero.defaults.cmp_config({
+  formatting = cmp_format,
   mapping = cmp_mappings,
   preselect = cmp.PreselectMode.Item,
   completion = {
@@ -113,15 +124,6 @@ require('luasnip.loaders.from_vscode').lazy_load()
 
 -- https://github.com/VonHeikemen/lsp-zero.nvim/discussions/53
 cmp.setup(cmp_config)
-
-cmp.setup.filetype('ruby', {
-  sources = cmp.config.sources({
-    { name = "nvim_lsp", priority = 100 },
-    { name = "path", priority = 10 },
-  }, {
-    { name = 'buffer' },
-  })
-})
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ '/', '?' }, {
