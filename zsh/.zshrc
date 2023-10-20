@@ -19,7 +19,7 @@ if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-NVIM_APP_IMAGE="nvim_v0_9_1.appimage"
+NVIM_APP_IMAGE="nvim_v0_9_4.appimage"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
