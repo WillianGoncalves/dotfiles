@@ -56,7 +56,15 @@ return packer.startup(function(use)
   use { 'kyazdani42/nvim-tree.lua' }
   use { 'tpope/vim-repeat' }
   use { 'kshenoy/vim-signature' }
-  use { 'tpope/vim-surround' }
+  use({
+    "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end
+  })
   use { 'WillianGoncalves/nvcode-color-schemes.vim' }
   use { 'folke/tokyonight.nvim' }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
