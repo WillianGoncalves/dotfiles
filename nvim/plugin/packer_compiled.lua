@@ -194,11 +194,6 @@ _G.packer_plugins = {
     path = "/home/willian/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
     url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
-  ["nvcode-color-schemes.vim"] = {
-    loaded = true,
-    path = "/home/willian/.local/share/nvim/site/pack/packer/start/nvcode-color-schemes.vim",
-    url = "https://github.com/WillianGoncalves/nvcode-color-schemes.vim"
-  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/willian/.local/share/nvim/site/pack/packer/start/nvim-cmp",

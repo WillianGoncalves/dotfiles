@@ -65,7 +65,6 @@ return packer.startup(function(use)
       })
     end
   })
-  use { 'WillianGoncalves/nvcode-color-schemes.vim' }
   use { 'folke/tokyonight.nvim' }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use { 'nvim-treesitter/playground' }
