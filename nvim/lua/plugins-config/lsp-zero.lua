@@ -83,27 +83,13 @@ vim.diagnostic.config({
 })
 
 local cmp = require('cmp')
--- local cmp_action = require('lsp-zero.cmp').action()
 local cmp_action = lsp_zero.cmp_action()
 local cmp_format = lsp_zero.cmp_format()
-local luasnip = require('luasnip')
-local cmp_mappings = lsp_zero.defaults.cmp_mappings({
-  ["<C-k>"] = cmp.mapping.select_prev_item(),
-  ["<C-j>"] = cmp.mapping.select_next_item(),
-  ['<C-y>'] = cmp.mapping.scroll_docs(-4),
-  ['<C-e>'] = cmp.mapping.scroll_docs(4),
-  ['<C-Space>'] = cmp.mapping.complete(),
-  ['<C-x>'] = cmp.mapping.abort(),
-  -- Accept currently selected item. If none selected, `select` first item.
-  -- Set `select` to `false` to only confirm explicitly selected items.
-  ['<CR>'] = cmp.mapping.confirm({ select = false }),
-  ['<Tab>'] = cmp_action.tab_complete(),
-  ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-})
 
-local cmp_config = lsp_zero.defaults.cmp_config({
+require('luasnip.loaders.from_vscode').lazy_load()
+
+cmp.setup({
   formatting = cmp_format,
-  mapping = cmp_mappings,
   preselect = cmp.PreselectMode.Item,
   completion = {
     completeopt=""
@@ -118,12 +104,20 @@ local cmp_config = lsp_zero.defaults.cmp_config({
     { name = 'buffer', priority = 20 },
     { name = "path", priority = 10 },
   },
+  mapping = cmp.mapping.preset.insert({
+    ["<C-k>"] = cmp.mapping.select_prev_item(),
+    ["<C-j>"] = cmp.mapping.select_next_item(),
+    ['<C-y>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-e>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-x>'] = cmp.mapping.abort(),
+    -- Accept currently selected item. If none selected, `select` first item.
+    -- Set `select` to `false` to only confirm explicitly selected items.
+    ['<CR>'] = cmp.mapping.confirm({ select = false }),
+    ['<Tab>'] = cmp_action.tab_complete(),
+    ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+  })
 })
-
-require('luasnip.loaders.from_vscode').lazy_load()
-
--- https://github.com/VonHeikemen/lsp-zero.nvim/discussions/53
-cmp.setup(cmp_config)
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ '/', '?' }, {
