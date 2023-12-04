@@ -80,7 +80,7 @@ return packer.startup(function(use)
   use { 'hrsh7th/cmp-cmdline' }
 
 	-- LSP
-  use { 'jose-elias-alvarez/null-ls.nvim' } -- for formatters and linters
+  use { 'nvimtools/none-ls.nvim' } -- for formatters and linters
   use { 'ray-x/lsp_signature.nvim' }
   use {
     'VonHeikemen/lsp-zero.nvim',
