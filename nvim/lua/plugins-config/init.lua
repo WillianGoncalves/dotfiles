@@ -17,6 +17,7 @@ require('plugins-config/ts-autotag')
 require('plugins-config/treejs')
 require('plugins-config/ufo')
 require('plugins-config/text-case')
+require('plugins-config/conform')
 
 -- vim configuration files
 vim.cmd('source' .. vim.fn.stdpath('config') .. '/lua/plugins-config/vimwiki.vim')

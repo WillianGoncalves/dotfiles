@@ -124,6 +124,11 @@ _G.packer_plugins = {
     path = "/home/willian/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["conform.nvim"] = {
+    loaded = true,
+    path = "/home/willian/.local/share/nvim/site/pack/packer/start/conform.nvim",
+    url = "https://github.com/stevearc/conform.nvim"
+  },
   ["editorconfig-vim"] = {
     loaded = true,
     path = "/home/willian/.local/share/nvim/site/pack/packer/start/editorconfig-vim",
