@@ -4,3 +4,4 @@ vim.keymap.set('n', '>', '>>', opts)
 vim.keymap.set('n', '<', '<<', opts)
 -- Paste above another content with <leader>p to keep the yanked text.
 vim.keymap.set('x', '<leader>p', '"_dP')
+vim.keymap.set('n', 'U', ':Gread<CR>', opts)
