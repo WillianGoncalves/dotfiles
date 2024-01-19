@@ -189,6 +189,11 @@ _G.packer_plugins = {
     path = "/home/willian/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["mini.align"] = {
+    loaded = true,
+    path = "/home/willian/.local/share/nvim/site/pack/packer/start/mini.align",
+    url = "https://github.com/echasnovski/mini.align"
+  },
   ["neovim-session-manager"] = {
     loaded = true,
     path = "/home/willian/.local/share/nvim/site/pack/packer/start/neovim-session-manager",

@@ -18,6 +18,7 @@ require('plugins-config/treejs')
 require('plugins-config/ufo')
 require('plugins-config/text-case')
 require('plugins-config/conform')
+require('plugins-config/mini-align')
 
 -- vim configuration files
 vim.cmd('source' .. vim.fn.stdpath('config') .. '/lua/plugins-config/vimwiki.vim')

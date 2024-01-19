@@ -76,6 +76,7 @@ return packer.startup(function(use)
   use { 'Wansmer/treesj', requires = 'nvim-treesitter' }
   use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
   use { 'stevearc/conform.nvim' }
+	use { 'echasnovski/mini.align', branch = 'stable' }
 
 	-- cmp plugins
   use { 'hrsh7th/cmp-cmdline' }
