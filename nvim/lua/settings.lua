@@ -1,4 +1,3 @@
-vim.g.mapleader = ' '
 vim.o.linespace = 7
 vim.o.number = true
 vim.o.relativenumber = true
@@ -18,8 +17,6 @@ vim.o.inccommand = 'nosplit' -- enable live substitution on neovim
 vim.o.conceallevel = 0
 vim.o.clipboard = 'unnamedplus'
 vim.o.updatetime = 50
-vim.o.termguicolors = true
+vim.o.termguicolors = true -- required by plugins like bufferline.nvim
 vim.o.wrap = false
 vim.o.signcolumn = 'yes:2'
-
-vim.cmd[[colorscheme tokyonight-night]]

@@ -1,6 +1,6 @@
+require('plugins')
 require('settings')
 require('keymaps')
 require('autocommands')
 require('usercommands')
-require('plugins')
 require('plugins-config')

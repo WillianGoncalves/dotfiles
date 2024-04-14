@@ -1,10 +1,9 @@
-local status_ok, gitsigns = pcall(require, "gitsigns")
-if not status_ok then
-  return
-end
+return {
+  -- Adds git related signs to the gutter, as well as utilities for managing changes
+  'lewis6991/gitsigns.nvim',
+  config = function()
+    local gitsigns = require('gitsigns')
 
-gitsigns.setup {
-  on_attach = function(bufnr)
     local function map(mode, l, r, opts)
       opts = opts or {}
       opts.buffer = bufnr
@@ -13,20 +12,26 @@ gitsigns.setup {
 
     -- Navigation
     map('n', ']h', function()
-      if vim.wo.diff then return ']c' end
-      vim.schedule(function() gitsigns.next_hunk() end)
-      return '<Ignore>'
-    end, {expr=true})
+      if vim.wo.diff then
+        vim.cmd.normal({']h', bang = true})
+      else
+        gitsigns.nav_hunk('next')
+      end
+    end)
 
     map('n', '[h', function()
-      if vim.wo.diff then return '[c' end
-      vim.schedule(function() gitsigns.prev_hunk() end)
-      return '<Ignore>'
-    end, {expr=true})
+      if vim.wo.diff then
+        vim.cmd.normal({'[h', bang = true})
+      else
+        gitsigns.nav_hunk('prev')
+      end
+    end)
 
     -- Actions
-    map({'n', 'v'}, '<leader>hs', ':Gitsigns stage_hunk<CR>')
-    map({'n', 'v'}, '<leader>uh', ':Gitsigns reset_hunk<CR>')
+    map('n', '<leader>hs', gitsigns.stage_hunk)
+    map('n', '<leader>hr', gitsigns.reset_hunk)
+    map('v', '<leader>hs', function() gitsigns.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
+    map('v', '<leader>hr', function() gitsigns.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
     map('n', '<leader>hS', gitsigns.stage_buffer)
     map('n', '<leader>hu', gitsigns.undo_stage_hunk)
     map('n', '<leader>hR', gitsigns.reset_buffer)
@@ -39,5 +44,7 @@ gitsigns.setup {
 
     -- Text object
     map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+
+    require('gitsigns').setup()
   end
 }

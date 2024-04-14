@@ -1,2 +1,0 @@
---vim.go.indentLine_enabled = 1
---vim.go.indentLine_char = '|'

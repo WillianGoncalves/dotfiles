@@ -1,24 +1,5 @@
 -- lua configuration files
-require('plugins-config/closetag')
-require('plugins-config/comment')
-require('plugins-config/indent-line')
-require('plugins-config/nvim-tree')
-require('plugins-config/telescope')
-require('plugins-config/treesitter')
-require('plugins-config/session-manager')
-require('plugins-config/lualine')
-require('plugins-config/bufferline')
-require('plugins-config/gitsigns')
-require('plugins-config/colorizer')
 require('plugins-config/leap')
 require('plugins-config/lsp-zero')
-require('plugins-config/harpoon')
-require('plugins-config/ts-autotag')
-require('plugins-config/treejs')
-require('plugins-config/ufo')
-require('plugins-config/text-case')
-require('plugins-config/conform')
-require('plugins-config/mini-align')
 
--- vim configuration files
-vim.cmd('source' .. vim.fn.stdpath('config') .. '/lua/plugins-config/vimwiki.vim')
+-- configurar autopairs
