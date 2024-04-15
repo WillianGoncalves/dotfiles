@@ -16,7 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = ' '
 
-plugins = {
+local plugins = {
 	'nvim-lua/plenary.nvim', -- Useful lua functions used by lots of plugins
   'tpope/vim-abolish',
   'windwp/nvim-ts-autotag',
@@ -51,33 +51,14 @@ plugins = {
   require('plugins/bufferline'),
 
 	-- cmp plugins
+  'hrsh7th/cmp-buffer',
   'hrsh7th/cmp-cmdline',
+  require('plugins/cmp'),
 
 	-- LSP
+  require('plugins/lsp'),
   'nvimtools/none-ls.nvim', -- for formatters and linters
   'ray-x/lsp_signature.nvim',
-  {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v3.x',
-    dependencies = {
-      -- LSP Support
-      'neovim/nvim-lspconfig',
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
-
-      -- Autocompletion
-      'hrsh7th/nvim-cmp',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-path',
-      'saadparwaiz1/cmp_luasnip',
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-nvim-lua',
-
-      -- Snippets
-      'L3MON4D3/LuaSnip',
-      'rafamadriz/friendly-snippets',
-    }
-  },
   'arkav/lualine-lsp-progress',
 }
 
