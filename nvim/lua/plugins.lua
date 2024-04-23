@@ -48,6 +48,7 @@ local plugins = {
   require('plugins/lualine'),
   require('plugins/bufferline'),
   require('plugins/colorizer'),
+  require('plugins/flash'),
 
 	-- cmp plugins
   'hrsh7th/cmp-buffer',
