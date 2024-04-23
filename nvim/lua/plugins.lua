@@ -20,7 +20,6 @@ local plugins = {
 	'nvim-lua/plenary.nvim', -- Useful lua functions used by lots of plugins
   'tpope/vim-abolish',
   'windwp/nvim-ts-autotag',
-  'norcalli/nvim-colorizer.lua',
   'editorconfig/editorconfig-vim',
   'tpope/vim-endwise',
   'tpope/vim-fugitive',
@@ -43,12 +42,12 @@ local plugins = {
   require('plugins/session-manager'),
   require('plugins/gitsigns'),
   require('plugins/comment'),
-  -- require('plugins/conform'), conflicting with lsp <leader>f mapping? only usefull for lua?
   require('plugins/mini-align'),
   require('plugins/text-case'),
   require('plugins/telescope'),
   require('plugins/lualine'),
   require('plugins/bufferline'),
+  require('plugins/colorizer'),
 
 	-- cmp plugins
   'hrsh7th/cmp-buffer',
