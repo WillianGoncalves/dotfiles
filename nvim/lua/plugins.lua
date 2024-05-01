@@ -49,6 +49,7 @@ local plugins = {
   require('plugins/bufferline'),
   require('plugins/colorizer'),
   require('plugins/flash'),
+  require('plugins/tmux'),
 
 	-- cmp plugins
   'hrsh7th/cmp-buffer',
