@@ -28,7 +28,6 @@ local plugins = {
   'nvim-treesitter/playground',
   'jremmen/vim-ripgrep',
   'lervag/vimtex',
-  'ggandor/leap.nvim',
 
   require('plugins/treesitter'),
   require('plugins/autopairs'),
@@ -54,6 +53,7 @@ local plugins = {
 	-- cmp plugins
   'hrsh7th/cmp-buffer',
   'hrsh7th/cmp-cmdline',
+  'saadparwaiz1/cmp_luasnip',
   require('plugins/cmp'),
 
 	-- LSP
