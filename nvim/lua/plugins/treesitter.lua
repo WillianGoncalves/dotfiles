@@ -13,18 +13,19 @@ return { -- Highlight, edit, and navigate code
 			additional_vim_regex_highlighting = { "ruby" },
 		},
 		indent = { enable = true, disable = { "ruby" } },
-		autotag = {
-			enable = true,
-			enable_rename = true,
-			enable_close = true,
-			enable_close_on_slash = true,
-		},
+    -- https://github.com/windwp/nvim-ts-autotag/issues/186
+		-- autotag = {
+		-- 	enable = true,
+		-- 	enable_rename = true,
+		-- 	enable_close = true,
+		-- 	enable_close_on_slash = true,
+		-- },
 	},
 	config = function(_, opts)
 		-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 
-		---@diagnostic disable-next-line: missing-fields
-		require("nvim-treesitter.configs").setup(opts)
+    local configs = require("nvim-treesitter.configs")
+    configs.setup(opts)
 
 		-- There are additional nvim-treesitter modules that you can use to interact
 		-- with nvim-treesitter. You should go explore a few and see what interests you:

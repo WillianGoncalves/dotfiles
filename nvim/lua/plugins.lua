@@ -19,7 +19,6 @@ vim.g.mapleader = ' '
 local plugins = {
 	'nvim-lua/plenary.nvim', -- Useful lua functions used by lots of plugins
   'tpope/vim-abolish',
-  'windwp/nvim-ts-autotag',
   'editorconfig/editorconfig-vim',
   'tpope/vim-endwise',
   'tpope/vim-fugitive',
@@ -49,6 +48,7 @@ local plugins = {
   require('plugins/colorizer'),
   require('plugins/flash'),
   require('plugins/tmux'),
+  require('plugins/nvim-ts-autotag'),
 
 	-- cmp plugins
   'hrsh7th/cmp-buffer',
