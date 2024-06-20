@@ -45,6 +45,11 @@ return {
           require('telescope.themes').get_dropdown(),
         },
       },
+      pickers = {
+        lsp_references = {
+          show_line = false
+        }
+      }
     }
 
     vim.keymap.set('n', '<C-p>', builtin.find_files, {})
