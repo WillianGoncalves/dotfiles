@@ -140,7 +140,7 @@ return { -- LSP Configuration & Plugins
       --
 
       eslint = {},
-      tsserver = {},
+      ts_ls = {},
       -- To get solargraph to work, it is necessary to install the lsp with mason and the gem for the corresponding project's ruby version.
       -- Then it is necessary to create a symlink like this: ln -s $HOME/.rbenv/shims/solargraph $HOME/.local/share/nvim/mason/bin/solargraph
       solargraph = {},
