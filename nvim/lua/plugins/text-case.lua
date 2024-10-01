@@ -2,8 +2,8 @@ return {
   "johmsalas/text-case.nvim",
   dependencies = { "nvim-telescope/telescope.nvim" },
   config = function()
-		vim.keymap.set("n", "<leader>ttc", "<cmd>TextCaseOpenTelescope<CR>", { desc = "[T]elescope open text case" })
-		vim.keymap.set("v", "<leader>ttc", "<cmd>TextCaseOpenTelescope<CR>", { desc = "[T]elescope open text case" })
+		vim.keymap.set("n", "<leader>cc", "<cmd>TextCaseOpenTelescope<CR>", { desc = "Telescope [c]hange [c]ase" })
+		vim.keymap.set("v", "<leader>cc", "<cmd>TextCaseOpenTelescope<CR>", { desc = "Telescope [c]hange [c]ase" })
     require("textcase").setup({})
     require("telescope").load_extension("textcase")
   end,

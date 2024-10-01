@@ -57,6 +57,7 @@ return {
 
     vim.keymap.set('n', '<C-p>', builtin.find_files, {})
     vim.keymap.set('n', '<C-f>', builtin.live_grep, {})
+    vim.keymap.set('n', '<leader>tt', builtin.treesitter, { desc = '[T]elescope [t]reesitter' })
     vim.keymap.set('n', '<leader>tr', builtin.lsp_references, { desc = '[T]elescope lsp [r]eferences' })
     vim.keymap.set('n', '<leader>th', builtin.help_tags, { desc = '[T]elescope [h]elp tags' })
     vim.keymap.set('n', '<leader>gc', builtin.git_commits, { desc = '[T]elescope [g]it [c]ommits' })
