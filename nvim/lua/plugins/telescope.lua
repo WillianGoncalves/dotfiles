@@ -12,10 +12,18 @@ return {
 
     -- Useful for getting pretty icons, but requires a Nerd Font.
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+
+    {
+      "nvim-telescope/telescope-live-grep-args.nvim" ,
+      -- This will not install any breaking changes.
+      -- For major updates, this must be adjusted manually.
+      version = "^1.0.0",
+    },
   },
   config = function()
+    -- local telescope = require('telescope')
     local builtin = require('telescope.builtin')
-    local actions = require "telescope.actions"
+    local actions = require('telescope.actions')
 
     require('telescope').setup {
       defaults = {
@@ -56,7 +64,7 @@ return {
     }
 
     vim.keymap.set('n', '<C-p>', builtin.find_files, {})
-    vim.keymap.set('n', '<C-f>', builtin.live_grep, {})
+    vim.keymap.set('n', '<C-f>', ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", {})
     vim.keymap.set('n', '<leader>tt', builtin.treesitter, { desc = '[T]elescope [t]reesitter' })
     vim.keymap.set('n', '<leader>tr', builtin.lsp_references, { desc = '[T]elescope lsp [r]eferences' })
     vim.keymap.set('n', '<leader>th', builtin.help_tags, { desc = '[T]elescope [h]elp tags' })
@@ -70,5 +78,6 @@ return {
 
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
+    pcall(require('telescope').load_extension, 'live_grep_args')
   end
 }
