@@ -21,3 +21,4 @@ vim.o.termguicolors = true -- required by plugins like bufferline.nvim
 vim.o.wrap = false
 vim.o.signcolumn = 'yes:2'
 vim.o.sessionoptions = 'blank,buffers,curdir,help,tabpages,winsize,terminal' -- default: blank,buffers,curdir,folds,help,tabpages,winsize,terminal
+vim.o.ignorecase = true
