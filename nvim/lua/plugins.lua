@@ -17,7 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = ' '
 
 local plugins = {
-	'nvim-lua/plenary.nvim', -- Useful lua functions used by lots of plugins
+  'nvim-lua/plenary.nvim', -- Useful lua functions used by lots of plugins
   'tpope/vim-abolish',
   'editorconfig/editorconfig-vim',
   'tpope/vim-endwise',
@@ -27,12 +27,13 @@ local plugins = {
   'nvim-treesitter/playground',
   'jremmen/vim-ripgrep',
   'lervag/vimtex',
+  'rcarriga/nvim-notify',
 
   require('plugins/treesitter'),
   require('plugins/autopairs'),
   require('plugins/tokyonight'),
   require('plugins/nvim-surround'),
-	require('plugins/markdown-preview'),
+  require('plugins/markdown-preview'),
   require('plugins/indent-line'),
   require('plugins/nvim-tree'),
   require('plugins/treesj'),
@@ -51,13 +52,13 @@ local plugins = {
   require('plugins/nvim-ts-autotag'),
   require('plugins/codeium'),
 
-	-- cmp plugins
+  -- cmp plugins
   'hrsh7th/cmp-buffer',
   'hrsh7th/cmp-cmdline',
   'saadparwaiz1/cmp_luasnip',
   require('plugins/cmp'),
 
-	-- LSP
+  -- LSP
   require('plugins/lsp'),
   'nvimtools/none-ls.nvim', -- for formatters and linters
   'ray-x/lsp_signature.nvim',
