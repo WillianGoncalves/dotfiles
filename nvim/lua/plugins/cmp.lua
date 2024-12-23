@@ -110,9 +110,9 @@ return { -- Autocompletion
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
       },
       sources = {
-        { name = "luasnip",  priority = 100 },
+        { name = "codeium",  priority = 100 },
+        { name = "luasnip",  priority = 95 },
         { name = "nvim_lsp", priority = 90 },
-        { name = "codeium",  priority = 85 },
         { name = "nvim_lua", priority = 80 },
         { name = "buffer",   priority = 20 },
         { name = "path",     priority = 10 },
