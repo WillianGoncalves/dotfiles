@@ -40,6 +40,7 @@ local plugins = {
   require('plugins/ufo'),
   require('plugins/session-manager'),
   require('plugins/gitsigns'),
+  require('plugins/ts-context-commentstring'),
   require('plugins/comment'),
   require('plugins/mini-align'),
   require('plugins/text-case'),
