@@ -52,6 +52,7 @@ local plugins = {
   require('plugins/tmux'),
   require('plugins/nvim-ts-autotag'),
   require('plugins/codeium'),
+  require('plugins/translate'),
 
   -- cmp plugins
   'hrsh7th/cmp-buffer',
