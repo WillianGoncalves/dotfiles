@@ -42,7 +42,7 @@ local plugins = {
   require('plugins/gitsigns'),
   require('plugins/ts-context-commentstring'),
   require('plugins/comment'),
-  require('plugins/mini-align'),
+  require('plugins/mini'),
   require('plugins/text-case'),
   require('plugins/telescope'),
   require('plugins/lualine'),
