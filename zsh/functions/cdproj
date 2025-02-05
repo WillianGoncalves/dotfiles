@@ -9,7 +9,7 @@ help() {
 }
 
 go_to_project() {
-  project=$(fd --hidden '\.git$' $HOME/Projects -x echo {//} | fzf;)
+  project=$(fd -t d -H -I '\.git$' $HOME/Projects -x echo {//} | fzf;)
   if [ -z "$project" ]; then
     return
   else
