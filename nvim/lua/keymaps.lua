@@ -11,3 +11,6 @@ vim.api.nvim_set_keymap('n', 'vv', 'V', { noremap = true, silent = true })
 
 -- 'V' select from cursor to end of line
 vim.api.nvim_set_keymap('n', 'V', 'vg_', { noremap = true, silent = true })
+
+-- map 'C' to black hole register ("_) so that it does not replace yanked text
+vim.api.nvim_set_keymap("n", "C", '"_C', { noremap = true })
