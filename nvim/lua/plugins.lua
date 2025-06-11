@@ -53,6 +53,7 @@ local plugins = {
   require('plugins/nvim-ts-autotag'),
   require('plugins/codeium'),
   require('plugins/translate'),
+  require('plugins/copilot'),
 
   -- cmp plugins
   'hrsh7th/cmp-buffer',
