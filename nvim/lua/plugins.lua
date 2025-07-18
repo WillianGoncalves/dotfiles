@@ -51,9 +51,9 @@ local plugins = {
   require('plugins/flash'),
   require('plugins/tmux'),
   require('plugins/nvim-ts-autotag'),
-  require('plugins/codeium'),
   require('plugins/translate'),
   require('plugins/copilot'),
+  require('plugins/copilot-chat'),
 
   -- cmp plugins
   'hrsh7th/cmp-buffer',

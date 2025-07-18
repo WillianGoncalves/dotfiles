@@ -46,7 +46,6 @@ return {
       map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
     end
 
-
     gitsigns.setup({ on_attach = on_attach })
   end
 }
