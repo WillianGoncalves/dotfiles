@@ -54,6 +54,7 @@ local plugins = {
   require('plugins/translate'),
   require('plugins/copilot'),
   require('plugins/copilot-chat'),
+  require('plugins/conform'),
 
   -- cmp plugins
   'hrsh7th/cmp-buffer',
