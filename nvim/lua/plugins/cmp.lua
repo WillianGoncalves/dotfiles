@@ -111,7 +111,7 @@ return { -- Autocompletion
       },
       sources = {
         { name = "codeium",  priority = 100 },
-        { name = "luasnip",  priority = 95 },
+        -- { name = "luasnip",  priority = 95 },
         { name = "nvim_lsp", priority = 90 },
         { name = "nvim_lua", priority = 80 },
         { name = "buffer",   priority = 20 },
