@@ -22,3 +22,4 @@ vim.o.wrap = false
 vim.o.signcolumn = 'yes:2'
 vim.o.sessionoptions = 'blank,buffers,curdir,help,tabpages,winsize,terminal' -- default: blank,buffers,curdir,folds,help,tabpages,winsize,terminal
 vim.o.ignorecase = true
+vim.g.node_host_prog = '~/.nvm/versions/node/v22.14.0/lib/node_modules'
