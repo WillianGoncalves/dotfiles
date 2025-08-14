@@ -7,6 +7,6 @@ return {
     })
 
     vim.g.copilot_no_tab_map = true
-    vim.g.copilot_node_command = '~/.nvm/versions/node/v22.14.0/bin/node'
+    vim.g.copilot_node_command = '~/.nvm/versions/node/v24.5.0/bin/node'
   end,
 }

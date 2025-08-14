@@ -3,6 +3,7 @@ return { -- Highlight, edit, and navigate code
   build = ":TSUpdate",
   opts = {
     ensure_installed = "all",
+    ignore_install = { "ipkg" },
     -- Autoinstall languages that are not installed
     auto_install = true,
     highlight = {
