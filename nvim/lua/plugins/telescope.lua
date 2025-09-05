@@ -24,6 +24,7 @@ return {
     -- local telescope = require('telescope')
     local builtin = require('telescope.builtin')
     local actions = require('telescope.actions')
+    local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
 
     require('telescope').setup {
       defaults = {
@@ -65,6 +66,7 @@ return {
 
     vim.keymap.set('n', '<C-p>', builtin.find_files, {})
     vim.keymap.set('n', '<C-f>', ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", {})
+    vim.keymap.set('v', '<C-f>', live_grep_args_shortcuts.grep_visual_selection, {})
     vim.keymap.set('n', '<leader>tt', builtin.treesitter, { desc = '[T]elescope [t]reesitter' })
     vim.keymap.set('n', '<leader>tr', builtin.lsp_references, { desc = '[T]elescope lsp [r]eferences' })
     vim.keymap.set('n', '<leader>th', builtin.help_tags, { desc = '[T]elescope [h]elp tags' })
