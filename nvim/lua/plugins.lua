@@ -30,6 +30,7 @@ local plugins = {
   'rcarriga/nvim-notify',
 
   require('plugins/treesitter'),
+  require('plugins/treesitter-textobjects'),
   require('plugins/autopairs'),
   require('plugins/tokyonight'),
   require('plugins/nvim-surround'),
@@ -55,11 +56,6 @@ local plugins = {
   require('plugins/copilot'),
   require('plugins/copilot-chat'),
   require('plugins/conform'),
-
-  -- cmp plugins
-  'hrsh7th/cmp-buffer',
-  'hrsh7th/cmp-cmdline',
-  'saadparwaiz1/cmp_luasnip',
   require('plugins/cmp'),
 
   -- LSP
