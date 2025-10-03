@@ -1,10 +1,13 @@
 return { -- Autocompletion
-  'hrsh7th/nvim-cmp',
-  event = 'InsertEnter',
+  'saghen/blink.cmp',
+  event = 'VimEnter',
+  version = '1.*',
+  build = 'cargo build --release',
   dependencies = {
     -- Snippet Engine & its associated nvim-cmp source
     {
       'L3MON4D3/LuaSnip',
+      version = '2.*',
       build = (function()
         -- Build Step is needed for regex support in snippets.
         -- This step is not supported in many windows environments.
@@ -15,7 +18,7 @@ return { -- Autocompletion
         return 'make install_jsregexp'
       end)(),
       dependencies = {
-        -- 'friendly-snippets' -- contains a variety of premade snippets.
+        -- `friendly-snippets` contains a variety of premade snippets.
         --    See the README about individual language/framework/plugin snippets:
         --    https://github.com/rafamadriz/friendly-snippets
         {
@@ -25,123 +28,132 @@ return { -- Autocompletion
           end,
         },
       },
+      opts = {},
     },
-    'saadparwaiz1/cmp_luasnip',
-
-    -- Adds other completion capabilities.
-    --  nvim-cmp does not ship with all sources by default. They are split
-    --  into multiple repos for maintenance purposes.
-    'hrsh7th/nvim-cmp',
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-cmdline',
-    'hrsh7th/cmp-path',
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-nvim-lua',
+    'folke/lazydev.nvim',
   },
-  config = function()
-    -- See `:help cmp`
-    local cmp = require 'cmp'
-    local luasnip = require 'luasnip'
-    luasnip.config.setup {}
+  opts = {
+    keymap = {
+      preset = 'default',
+      -- Select the [n]ext item
+      ['<C-j>'] = { 'select_next', 'fallback' },
+      ["<Tab>"] = { 'select_next', 'fallback' },
+      -- Select the [p]revious item
+      ['<C-k>'] = { 'select_prev', 'fallback' },
+      ["<S-Tab>"] = { 'select_prev', 'fallback' },
 
-    cmp.setup {
-      snippet = {
-        expand = function(args)
-          luasnip.lsp_expand(args.body)
-        end,
-      },
+      -- Scroll the documentation window [b]ack / [f]orward
+      ['<C-y>'] = { 'scroll_documentation_up' },
+      ['<C-e>'] = { 'scroll_documentation_down' },
 
-      completion = {
-        completeopt = "menu,menuone,noinsert",
-      },
+      -- Accept currently selected item. If none selected, `select` first item.
+      -- Set `select` to `false` to only confirm explicitly selected items.
+      --  This will auto-import if your LSP supports it.
+      --  This will expand snippets if the LSP sent a snippet.
+      ['<CR>'] = { 'select_and_accept', 'fallback' },
+      ["<C-x>"] = { 'cancel' },
 
-      window = {
-        documention = cmp.config.window.bordered(),
-      },
+      -- Manually trigger a completion from nvim-cmp.
+      --  Generally you don't need this, because nvim-cmp will display
+      --  completions whenever it has completion options available.
+      ['<C-Space>'] = { 'show' },
 
-      -- For an understanding of why these mappings were
-      -- chosen, you will need to read `:help ins-completion`
+      -- Think of <c-l> as moving to the right of your snippet expansion.
+      --  So if you have a snippet that's like:
+      --  function $name($args)
+      --    $body
+      --  end
       --
-      -- No, but seriously. Please read `:help ins-completion`, it is really good!
-      mapping = cmp.mapping.preset.insert {
-        -- Select the [n]ext item
-        ['<C-j>'] = cmp.mapping.select_next_item(),
-        ["<Tab>"] = cmp.mapping.select_next_item(),
-        -- Select the [p]revious item
-        ['<C-k>'] = cmp.mapping.select_prev_item(),
-        ["<S-Tab>"] = cmp.mapping.select_prev_item(),
+      -- <c-n> will move you to the right of each of the expansion locations.
+      -- <c-p> is similar, except moving you backwards.
+      ['<C-n>'] = { 'snippet_forward', 'fallback' },
+      ['<C-p>'] = { 'snippet_backward', 'fallback' },
+    },
 
-        -- Scroll the documentation window [b]ack / [f]orward
-        ['<C-y>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-e>'] = cmp.mapping.scroll_docs(4),
+    appearance = {
+      -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
+      -- Adjusts spacing to ensure icons are aligned
+      nerd_font_variant = 'mono',
+    },
 
-        -- Accept currently selected item. If none selected, `select` first item.
-        -- Set `select` to `false` to only confirm explicitly selected items.
-        --  This will auto-import if your LSP supports it.
-        --  This will expand snippets if the LSP sent a snippet.
-        ['<CR>'] = cmp.mapping.confirm { select = false },
-        ["<C-x>"] = cmp.mapping.abort(),
+    completion = {
+      -- By default, you may press `<c-space>` to show the documentation.
+      -- Optionally, set `auto_show = true` to show the documentation after a delay.
+      documentation = { auto_show = true, auto_show_delay_ms = 500 },
+      -- menu = {
+      --   draw = {
+      --     columns = {
+      --       { "label",     "label_description", gap = 1 },
+      --       { "kind_icon", "kind" }
+      --     }
+      --   }
+      -- }
+    },
 
-        -- Manually trigger a completion from nvim-cmp.
-        --  Generally you don't need this, because nvim-cmp will display
-        --  completions whenever it has completion options available.
-        ['<C-Space>'] = cmp.mapping.complete {},
-
-        -- Think of <c-l> as moving to the right of your snippet expansion.
-        --  So if you have a snippet that's like:
-        --  function $name($args)
-        --    $body
-        --  end
-        --
-        -- <c-n> will move you to the right of each of the expansion locations.
-        -- <c-p> is similar, except moving you backwards.
-        ['<C-n>'] = cmp.mapping(function()
-          if luasnip.expand_or_locally_jumpable() then
-            luasnip.expand_or_jump()
-          end
-        end, { 'i', 's' }),
-        ['<C-p>'] = cmp.mapping(function()
-          if luasnip.locally_jumpable(-1) then
-            luasnip.jump(-1)
-          end
-        end, { 'i', 's' }),
-
-        -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
-        --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
+    sources = {
+      -- OLD WAY:
+      -- sources = {
+      --   { name = "nvim_lsp", priority = 90 },
+      --   { name = "nvim_lua", priority = 80 },
+      --   { name = "buffer",   priority = 20 },
+      --   { name = "path",     priority = 10 },
+      -- },
+      default = { 'lsp', 'snippets', 'lazydev', 'path' },
+      providers = {
+        lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
+        snippets = {
+          opts = {
+            friendly_snippets = true,
+          }
+        }
       },
-      sources = {
-        { name = "codeium",  priority = 100 },
-        -- { name = "luasnip",  priority = 95 },
-        { name = "nvim_lsp", priority = 90 },
-        { name = "nvim_lua", priority = 80 },
-        { name = "buffer",   priority = 20 },
-        { name = "path",     priority = 10 },
+    },
+
+    snippets = { preset = 'luasnip' },
+
+    cmdline = {
+      keymap = {
+        preset = 'inherit',
+        ['<CR>'] = { 'accept_and_enter', 'fallback' },
+      },
+      completion = {
+        menu = {
+          auto_show = true,
+        },
+        ghost_text = {
+          enabled = true,
+        },
+        list = {
+          selection = {
+            preselect = false,
+          }
+        }
       },
     }
+  }
+  -- config = function()
+  --   cmp.setup.cmdline("/", {
+  --     preselect = "None",
+  --     completion = {
+  --       completeopt = "menu,menuone,noinsert,noselect",
+  --     },
+  --     mapping = cmp.mapping.preset.cmdline(),
+  --     sources = {
+  --       { name = "buffer" },
+  --     },
+  --   })
 
-    -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-    cmp.setup.cmdline("/", {
-      preselect = "None",
-      completion = {
-        completeopt = "menu,menuone,noinsert,noselect",
-      },
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = {
-        { name = "buffer" },
-      },
-    })
-
-    cmp.setup.cmdline(":", {
-      preselect = "None",
-      completion = {
-        completeopt = "menu,menuone,noinsert,noselect",
-      },
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = cmp.config.sources({
-        { name = "path", priority = 10 },
-      }, {
-        { name = "cmdline", priority = 70 },
-      }),
-    })
-  end,
+  --   cmp.setup.cmdline(":", {
+  --     preselect = "None",
+  --     completion = {
+  --       completeopt = "menu,menuone,noinsert,noselect",
+  --     },
+  --     mapping = cmp.mapping.preset.cmdline(),
+  --     sources = cmp.config.sources({
+  --       { name = "path", priority = 10 },
+  --     }, {
+  --       { name = "cmdline", priority = 70 },
+  --     }),
+  --   })
+  -- end,
 }
