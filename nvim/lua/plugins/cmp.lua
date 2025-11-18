@@ -91,21 +91,9 @@ return { -- Autocompletion
     },
 
     sources = {
-      -- OLD WAY:
-      -- sources = {
-      --   { name = "nvim_lsp", priority = 90 },
-      --   { name = "nvim_lua", priority = 80 },
-      --   { name = "buffer",   priority = 20 },
-      --   { name = "path",     priority = 10 },
-      -- },
-      default = { 'lsp', 'snippets', 'lazydev', 'path' },
+      default = { 'lsp', 'snippets', 'lazydev', 'buffer', 'path' },
       providers = {
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
-        snippets = {
-          opts = {
-            friendly_snippets = true,
-          }
-        }
       },
     },
 
