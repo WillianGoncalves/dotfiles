@@ -91,8 +91,9 @@ return { -- Autocompletion
     },
 
     sources = {
-      default = { 'lsp', 'snippets', 'lazydev', 'buffer', 'path' },
+      default = { 'path', 'lsp', 'snippets', 'lazydev', 'buffer' },
       providers = {
+        path = { module = 'blink.cmp.sources.path', score_offset = 0 },
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
       },
     },
@@ -119,29 +120,4 @@ return { -- Autocompletion
       },
     }
   }
-  -- config = function()
-  --   cmp.setup.cmdline("/", {
-  --     preselect = "None",
-  --     completion = {
-  --       completeopt = "menu,menuone,noinsert,noselect",
-  --     },
-  --     mapping = cmp.mapping.preset.cmdline(),
-  --     sources = {
-  --       { name = "buffer" },
-  --     },
-  --   })
-
-  --   cmp.setup.cmdline(":", {
-  --     preselect = "None",
-  --     completion = {
-  --       completeopt = "menu,menuone,noinsert,noselect",
-  --     },
-  --     mapping = cmp.mapping.preset.cmdline(),
-  --     sources = cmp.config.sources({
-  --       { name = "path", priority = 10 },
-  --     }, {
-  --       { name = "cmdline", priority = 70 },
-  --     }),
-  --   })
-  -- end,
 }
