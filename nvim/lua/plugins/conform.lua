@@ -5,7 +5,8 @@ return {
     require('conform').setup({
       formatters_by_ft = {
         fdx = { 'prettier_xml' },
-        xml = { 'prettier_xml' }
+        xml = { 'prettier_xml' },
+        python = { 'ruff' },
       },
     })
 
