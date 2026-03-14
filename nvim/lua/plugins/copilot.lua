@@ -1,3 +1,4 @@
+-- Se tiver problemas com a inicialização do copilot, tente apagar o cache do npx: rm -rf ~/.npm/_npx
 return {
   'github/copilot.vim',
   init = function()
