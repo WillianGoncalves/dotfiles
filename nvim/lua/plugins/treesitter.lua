@@ -1,9 +1,10 @@
 return { -- Highlight, edit, and navigate code
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
+  branch = "master",
   opts = {
     ensure_installed = "all",
-    ignore_install = { "ipkg" },
+    ignore_install = { "ipkg", "jsonc", "unison", "mlir", "swift", "blueprint", "t32", "fusion", "teal", "scfg", "ocamllex", "latex" },
     -- Autoinstall languages that are not installed
     auto_install = true,
     highlight = {
