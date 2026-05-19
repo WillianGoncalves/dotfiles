@@ -29,6 +29,8 @@ alias nvim='$HOME/Applications/$NVIM_APP_IMAGE'
 alias gco='git checkout $(git branch | fzf)'
 alias cdpl='cd $HOME/Projects/o2/etherpad-docker/etherpad-src/etherpad-lite/node_modules && cd $(ls | fzf)'
 alias bat='$HOME/.local/bin/bat'
+alias claude-personal='CLAUDE_CONFIG_DIR=~/.claude-personal claude'
+alias claude-o2='CLAUDE_CONFIG_DIR=~/.claude-o2 claude'
 
 # autoload functions defined in "functions" folder
 fpath=($HOME/Projects/dotfiles/zsh/functions $fpath)
