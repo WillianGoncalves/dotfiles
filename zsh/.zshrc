@@ -25,7 +25,11 @@ NVIM_APP_IMAGE="nvim_v0_11_6.appimage"
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-alias nvim='$HOME/Applications/$NVIM_APP_IMAGE'
+nvim() {
+  # Remove stale npx temp dirs that cause ENOTEMPTY when the copilot language server version bumps
+  find "$HOME/.npm/_npx" -maxdepth 5 -type d -name '.copilot-language-server*' -exec rm -rf {} + 2>/dev/null || true
+  "$HOME/Applications/$NVIM_APP_IMAGE" "$@"
+}
 alias gco='git checkout $(git branch | fzf)'
 alias cdpl='cd $HOME/Projects/o2/etherpad-docker/etherpad-src/etherpad-lite/node_modules && cd $(ls | fzf)'
 alias bat='$HOME/.local/bin/bat'
