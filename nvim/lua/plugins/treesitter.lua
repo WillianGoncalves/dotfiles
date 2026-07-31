@@ -8,7 +8,7 @@ return { -- Highlight, edit, and navigate code
   -- module, and `ensure_installed`/`auto_install`/`incremental_selection` are gone.
   -- Parsers are now installed on demand from a FileType autocommand instead.
   config = function()
-    local ignore_install = { "ipkg", "jsonc", "unison", "mlir", "swift", "blueprint", "t32", "fusion", "teal", "scfg", "ocamllex", "latex" }
+    local ignore_install = { "ipkg", "jsonc", "unison", "mlir", "swift", "blueprint", "t32", "fusion", "teal", "scfg", "ocamllex" }
     -- Some languages depend on vim's regex indent system (such as Ruby).
     -- If you are experiencing weird indenting issues, add the language here
     -- to keep using its native ftplugin indentation instead of treesitter's.
