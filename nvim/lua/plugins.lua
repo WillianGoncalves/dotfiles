@@ -24,7 +24,6 @@ local plugins = {
   'tpope/vim-fugitive',
   'tpope/vim-repeat',
   'kshenoy/vim-signature',
-  'nvim-treesitter/playground',
   'jremmen/vim-ripgrep',
   'lervag/vimtex',
   'rcarriga/nvim-notify',
