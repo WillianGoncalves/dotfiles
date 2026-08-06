@@ -22,13 +22,50 @@ return { -- Highlight, edit, and navigate code
         return
       end
 
-      -- enables syntax highlighting and other treesitter features
-      vim.treesitter.start(buf, language)
+      local function activate()
+        -- enables syntax highlighting and other treesitter features
+        vim.treesitter.start(buf, language)
 
-      -- enables treesitter based indentation
-      if not vim.tbl_contains(indent_disable, language) then
-        vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        -- enables treesitter based indentation
+        if not vim.tbl_contains(indent_disable, language) then
+          vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end
       end
+
+      -- Guard against a known nvim-treesitter (main branch) bug: an install can
+      -- get interrupted after the parser .so is compiled but before its query
+      -- files are symlinked into site/queries/<language>. get_installed() only
+      -- checks for the parser binary, so a half-finished install is reported as
+      -- "already installed" forever and the missing queries never get relinked
+      -- (this is what silently killed Python highlighting once). Detect that
+      -- (parser loads fine, but no highlights query files on disk) and force a
+      -- reinstall to repair it.
+      --
+      -- Note: use `get_files` (hits the filesystem) rather than `query.get`
+      -- (memoized) for the check, so a missing-query buffer can't poison the
+      -- cache with a stale negative result before we've had a chance to repair.
+      if #vim.treesitter.query.get_files(language, "highlights") == 0 then
+        require("nvim-treesitter").install({ language }, { force = true }):await(function(err)
+          if err then
+            vim.notify(
+              ("treesitter: failed to repair queries for '%s': %s"):format(language, err),
+              vim.log.levels.WARN
+            )
+            return
+          end
+          -- drop any cached (possibly nil) query results for this language,
+          -- e.g. from an earlier buffer opened before the repair completed
+          vim.treesitter.query.get:clear()
+          vim.schedule(function()
+            if vim.api.nvim_buf_is_valid(buf) then
+              activate()
+            end
+          end)
+        end)
+        return
+      end
+
+      activate()
     end
 
     local available_parsers = vim.tbl_filter(function(lang)
