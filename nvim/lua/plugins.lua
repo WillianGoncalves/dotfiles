@@ -52,8 +52,6 @@ local plugins = {
   require('plugins/tmux'),
   require('plugins/nvim-ts-autotag'),
   require('plugins/translate'),
-  require('plugins/copilot'),
-  require('plugins/copilot-chat'),
   require('plugins/conform'),
   require('plugins/cmp'),
 
